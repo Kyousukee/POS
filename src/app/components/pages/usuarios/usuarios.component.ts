@@ -26,13 +26,17 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  UsuarioLogueado!: Usuario;
+
   constructor(
     private dialog: MatDialog,
     private _snackBar: MatSnackBar,
     private _usuarioServicio: UsuarioServicioService
   )
   {
-    
+    if (sessionStorage.getItem('session')) {
+      this.UsuarioLogueado = JSON.parse(sessionStorage.getItem('session')!) || '';
+    }
   }
 
   ngOnInit(): void {
@@ -49,7 +53,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
   }
 
   mostrarUsuarios() {
-    this._usuarioServicio.getUsuarios().subscribe({
+    this._usuarioServicio.getUsuarios(this.UsuarioLogueado).subscribe({
       next: (data) => {
         console.log(data.value);
         if(data.status)
