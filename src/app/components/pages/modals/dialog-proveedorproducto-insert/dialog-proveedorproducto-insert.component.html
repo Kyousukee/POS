@@ -1,0 +1,84 @@
+<h2 mat-dialog-title>{{accion}} Proveedor Producto</h2>
+  <mat-dialog-content>
+
+    <form [formGroup]="formProveedorProducto">
+      <mat-grid-list cols="1" rowHeight="80px">
+
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+            <input type="text" id="codbarras3"
+                   placeholder="Lector Codigo de barras..."
+                   aria-label="Codigo Barras"
+                   formControlName="codbarras"
+                   matInput cdkFocusInitial autofocus (keyup.enter)="onEnterCodBarras($event)">
+            
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+
+            <mat-form-field class="example-full-width" appearance="fill" *ngIf="accion=='Editar'">
+              <mat-label>Producto</mat-label>
+              <input type="text"
+                     aria-label="Number"
+                     matInput
+                     formControlName="producto2" [readonly]="true">
+            </mat-form-field>
+  
+
+            <mat-form-field class="example-full-width" appearance="fill" *ngIf="accion=='Agregar'">
+              <mat-label>Producto</mat-label>
+              <input type="text"
+                     placeholder="Buscar..."
+                     aria-label="Number"
+                     matInput
+                     [matAutocomplete]="auto"
+                     formControlName="producto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                                (optionSelected)="productoSeleccionado($event)"
+                                [displayWith]="displayProducto">
+                <mat-option *ngFor="let option of filteredOptions" [value]="option">
+                  {{option.nombre}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+  
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label *ngIf="cobroPor==1">Precio Unidad</mat-label>
+              <mat-label *ngIf="cobroPor==2">Precio Kilos</mat-label>
+              <input matInput type="number" formControlName="precio">
+            </mat-form-field>
+          </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="esActivo">
+              <mat-option [value]="true">
+                Activo
+              </mat-option>
+              <mat-option  [value]="false">
+                Inactivo
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+      </mat-grid-list>
+    </form>
+
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Volver</button>
+    <button mat-raised-button
+            color="primary"
+            [disabled]="formProveedorProducto.invalid"
+            (click)="agregarEditarProveedorProducto()">
+      {{accionBoton}}
+    </button>
+  </mat-dialog-actions>

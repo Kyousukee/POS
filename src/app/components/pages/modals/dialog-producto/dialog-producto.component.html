@@ -1,0 +1,136 @@
+
+  <h2 mat-dialog-title>{{accion}} Producto</h2>
+  <mat-dialog-content>
+
+    <form [formGroup]="formProducto">
+      <mat-grid-list cols="1" rowHeight="80px">
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput autocomplete="off" formControlName="nombre">
+            <mat-icon matSuffix>fit_screen</mat-icon>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <!-- <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Categoria</mat-label>
+            <mat-select formControlName="idCategoria">
+              <mat-option *ngFor="let item of listaCategorias" [value]="item.idCategoria">
+                {{item.descripcion}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile> -->
+
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Cobro</mat-label>
+            <mat-select formControlName="idCob">
+              <mat-option *ngFor="let item of listaCobros" [value]="item.id_cob">
+                {{item.desc_cob}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Precio Proporcional por Proveedor %</mat-label>
+            <mat-select formControlName="precioProporcional" (selectionChange)="precioProporcional($event.value)">
+              <mat-option [value]="true">
+                Si
+              </mat-option>
+              <mat-option  [value]="false">
+                No
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label *ngIf="precioPropo">Precio</mat-label>
+            <mat-label *ngIf="!precioPropo">Porcentaje</mat-label>
+            <input matInput autocomplete="off" formControlName="precio"  type="number" min="1">
+            <mat-icon matSuffix *ngIf="precioPropo">attach_money</mat-icon>
+            <mat-icon matSuffix *ngIf="!precioPropo">percent</mat-icon>
+            <mat-hint [hidden]="precioPropo">Precio calculado automatico por el % del valor de los Proveedor/res</mat-hint>
+          </mat-form-field>
+          
+        </mat-grid-tile>
+          
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Precio Compra por Proveedor</mat-label>
+            <mat-select formControlName="precioProveedor" (selectionChange)="precioProveedor($event.value)">
+              <mat-option [value]="true">
+                Si
+              </mat-option>
+              <mat-option  [value]="false">
+                No
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <div *ngIf="!precioProve">
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>Precio Compra</mat-label>
+              <input matInput autocomplete="off" formControlName="precioCompra"  type="number" min="1">
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+          </mat-grid-tile>
+        </div>
+        
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Codigo de Barra</mat-label>
+            <input matInput autocomplete="off" formControlName="codbarra">
+            <mat-icon matSuffix>fit_screen</mat-icon>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Stock</mat-label>
+            <input matInput autocomplete="off" type="number" formControlName="stock">
+            <mat-icon matSuffix>fit_screen</mat-icon>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="esActivo">
+              <mat-option [value]="true">
+                Activo
+              </mat-option>
+              <mat-option  [value]="false">
+                Inactivo
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+      </mat-grid-list>
+    </form>
+
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Volver</button>
+    <button mat-raised-button
+            color="primary"
+            [disabled]="formProducto.invalid"
+            (click)="agregarEditarProducto()">
+      {{accionBoton}}
+    </button>
+  </mat-dialog-actions>

@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+::-webkit-scrollbar:vertical {
+    width:10px;
+  }
+  
+::-webkit-scrollbar-button:increment,::-webkit-scrollbar-button {
+    display: none;
+  } 
+  
+::-webkit-scrollbar:horizontal {
+    height: 10px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+  }
+  
+::-webkit-scrollbar-track {
+    border-radius: 10px;  
+  }

@@ -71,7 +71,8 @@
               "browserTarget": "POS:build:production"
             },
             "development": {
-              "browserTarget": "POS:build:development"
+              "browserTarget": "POS:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -101,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "a37b18c8-64a9-4618-99cc-6cb488845cdb"
   }
 }

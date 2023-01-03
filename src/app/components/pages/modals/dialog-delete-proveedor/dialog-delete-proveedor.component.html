@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Eliminar Proveedor</h1>
+<div mat-dialog-content>
+  ¿Desea eliminar el Proveedor "{{proveedorEliminar.desc_proveedor}}"?
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>No,volver</button>
+  <button mat-raised-button color="warn" cdkFocusInitial (click)="eliminarProveedor()">Si, eliminar</button>
+</div>
+

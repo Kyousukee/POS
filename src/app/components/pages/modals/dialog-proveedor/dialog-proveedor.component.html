@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>{{accion}} Proveedor</h2>
+  <mat-dialog-content>
+
+    <form [formGroup]="formProveedor">
+      <mat-grid-list cols="1" rowHeight="80px">
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Rut Proveedor</mat-label>
+            <input matInput autocomplete="off" formControlName="rut_proveedor" maxlength="9">
+            <mat-icon matSuffix>fit_screen</mat-icon>
+          </mat-form-field>
+        </mat-grid-tile>
+        
+
+        <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>Descripcion</mat-label>
+              <input matInput autocomplete="off" formControlName="desc_proveedor">
+              <mat-icon matSuffix>fit_screen</mat-icon>
+            </mat-form-field>
+          </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="esActivo">
+              <mat-option [value]="true">
+                Activo
+              </mat-option>
+              <mat-option  [value]="false">
+                Inactivo
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+      </mat-grid-list>
+    </form>
+
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Volver</button>
+    <button mat-raised-button
+            color="primary"
+            [disabled]="formProveedor.invalid"
+            (click)="agregarEditarProveedor()">
+      {{accionBoton}}
+    </button>
+  </mat-dialog-actions>

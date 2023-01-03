@@ -1,0 +1,339 @@
+<!-- <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+                 [attr.role]="(isHandset$ | async) ? 'navigation' : 'dialog'"
+                 [mode]="(isHandset$ | async) ? 'side' : 'over'"
+                 [opened]="(isHandset$ | async) === false">
+  
+      <mat-toolbar>
+        Mi Tienda
+      </mat-toolbar>
+  
+      <mat-nav-list>
+  
+        <mat-list-item routerLink="/pages/dashboard">
+          <mat-icon mat-list-icon>dashboard</mat-icon>
+          <div mat-line>Dashboard</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/usuarios">
+          <mat-icon mat-list-icon>group</mat-icon>
+          <div mat-line>Usuarios</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/productos">
+          <mat-icon mat-list-icon>collections_bookmark</mat-icon>
+          <div mat-line>Productos</div>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/pages/comprar">
+          <mat-icon mat-list-icon>currency_exchange</mat-icon>
+          <div mat-line>Comprar</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/vender">
+          <mat-icon mat-list-icon>monetization_on</mat-icon>
+          <div mat-line>Vender</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/historialventas">
+          <mat-icon mat-list-icon>edit_note</mat-icon>
+          <div mat-line>Historial ventas</div>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/pages/historialcompras">
+          <mat-icon mat-list-icon>checklist</mat-icon>
+          <div mat-line>Historial compras</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/reportes">
+          <mat-icon mat-list-icon>receipt</mat-icon>
+          <div mat-line>Reportes</div>
+        </mat-list-item>
+  
+      </mat-nav-list>
+      
+  
+  
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+                 routerLink="/login" (click)="cerrarSesion()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->
+
+
+  <div class="example-container">
+    <mat-toolbar color="primary" class="example-toolbar" style="z-index: 100;">
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <img src="assets/img/POS2.png" width="150px">
+      <span class="example-spacer"></span>
+      <table border="0" style="font-size: 15px;line-height: 15px;text-align: end;">
+        <tr><td style="font-size: 15px;font-weight: 500;letter-spacing: 2.5px;">{{UsuarioLogueado.nombreApellidos}} <mat-icon mat-list-icon style="color: white;    font-size: 20px;margin-bottom: -8px;">person</mat-icon></td></tr>
+        <tr><td style="font-size: 14px;font-weight: 400;letter-spacing: 3px;">{{UsuarioLogueado.LocalDescripcion}} <mat-icon mat-list-icon style="color: white;    font-size: 20px;margin-bottom: -8px;">home</mat-icon></td></tr>
+        <tr><td style="font-size: 14px;font-weight: 400;letter-spacing: 3px;">{{UsuarioLogueado.rolDescripcion}} <mat-icon mat-list-icon style="color: white;    font-size: 20px;margin-bottom: -8px;">work</mat-icon></td></tr>
+        
+      </table>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+                 routerLink="/login" (click)="cerrarSesion()">
+          <mat-icon style="margin-left: 18px;">logout</mat-icon>
+        </button>
+        
+    </mat-toolbar>
+    <div class="row sidenav-container" style="--bs-gutter-x: 0!important;">
+      <div class="col-6 col-md-4 mobile" style="width: 65px; background-color: #673ab7;" color="primary">
+        <mat-nav-list >
+      
+          <mat-list-item routerLink="/pages/dashboard" matTooltip="Dashboard" matTooltipPosition="right" [hidden]="PermisoDashboard">
+            <mat-icon mat-list-icon style="color: white;">dashboard</mat-icon>
+          </mat-list-item>
+    
+          <mat-list-item routerLink="/pages/usuarios" matTooltip="Usuario" matTooltipPosition="right" [hidden]="PermisoUsuarios">
+            <mat-icon mat-list-icon style="color: white;">group</mat-icon>
+          </mat-list-item>
+    
+          <mat-list-item routerLink="/pages/productos" matTooltip="Productos" matTooltipPosition="right" [hidden]="PermisoProductos">
+            <mat-icon mat-list-icon style="color: white;">collections_bookmark</mat-icon>
+          </mat-list-item>
+
+          <mat-list-item routerLink="/pages/proveedor" matTooltip="Proveedores" matTooltipPosition="right" [hidden]="PermisoComprar">
+            <mat-icon mat-list-icon style="color: white;">contacts</mat-icon>
+          </mat-list-item>
+    
+          <mat-list-item routerLink="/pages/comprar" matTooltip="Compras" matTooltipPosition="right" [hidden]="PermisoComprar"> 
+            <mat-icon mat-list-icon style="color: white;">currency_exchange</mat-icon>
+          </mat-list-item>
+    
+          <mat-list-item routerLink="/pages/vender" matTooltip="Ventas" matTooltipPosition="right" [hidden]="PermisoVender">
+            <mat-icon mat-list-icon style="color: white;">monetization_on</mat-icon>
+          </mat-list-item>
+    
+          <mat-list-item routerLink="/pages/historial" matTooltip="Historial" matTooltipPosition="right" [hidden]="PermisoHistorial">
+            <mat-icon mat-list-icon style="color: white;">edit_note</mat-icon>
+          </mat-list-item>
+    
+          <!-- <mat-list-item routerLink="/pages/historialcompras" matTooltip="Historial Compras" matTooltipPosition="right">
+            <mat-icon mat-list-icon style="color: white;">checklist</mat-icon>
+          </mat-list-item> -->
+    
+          <mat-list-item routerLink="/pages/reportes" matTooltip="Reportes Ventas" matTooltipPosition="right" [hidden]="PermisoReportes">
+            <mat-icon mat-list-icon style="color: white;">sell</mat-icon>
+          </mat-list-item>
+
+          <mat-list-item routerLink="/pages/reportescompras" matTooltip="Reportes Compras" matTooltipPosition="right" [hidden]="PermisoReportes">
+            <mat-icon mat-list-icon style="color: white;">local_mall</mat-icon>
+          </mat-list-item>
+    
+        </mat-nav-list>
+      </div>
+      <div class="col">
+        <mat-sidenav-container class="example-sidenav-container sidenav-container" >
+      
+          <mat-sidenav #snav  fixedTopGap="56" [mode]="(isHandset$ | async) ? 'side' : 'over'" [opened]="(isHandset$ | async) === true" style="background-color: #673ab7;">
+                       <mat-nav-list>
+        
+                        <mat-list-item routerLink="/pages/dashboard" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoDashboard">
+                          <div mat-line style="color: white;">Dashboard</div>
+                        </mat-list-item>
+                  
+                        <mat-list-item routerLink="/pages/usuarios" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoUsuarios">
+                          <div mat-line style="color: white;">Usuarios</div>
+                        </mat-list-item>
+                  
+                        <mat-list-item routerLink="/pages/productos" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoProductos">
+                          <div mat-line style="color: white;">Productos</div>
+                        </mat-list-item>
+
+                        <mat-list-item routerLink="/pages/proveedor" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoComprar">
+                          <div mat-line style="color: white;">Proveedores</div>
+                        </mat-list-item>
+                
+                        <mat-list-item routerLink="/pages/comprar" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoComprar">
+                          <div mat-line style="color: white;">Comprar</div>
+                        </mat-list-item>
+                  
+                        <mat-list-item routerLink="/pages/vender" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoVender">
+                          <div mat-line style="color: white;">Vender</div>
+                        </mat-list-item>
+                  
+                        <mat-list-item routerLink="/pages/historial" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoHistorial">
+                          <div mat-line style="color: white;">Historial</div>
+                        </mat-list-item>
+                
+                        <!-- <mat-list-item routerLink="/pages/historialcompras" class="labelsidenav" (click)="snav.toggle()">
+                          <div mat-line style="color: white;">Historial compras</div>
+                        </mat-list-item> -->
+                  
+                        <mat-list-item routerLink="/pages/reportes" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoReportes">
+                          <div mat-line style="color: white;">Reportes Ventas</div>
+                        </mat-list-item>
+
+                        <mat-list-item routerLink="/pages/reportescompras" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoReportes">
+                          <div mat-line style="color: white;">Reportes Compras</div>
+                        </mat-list-item>
+                  
+                      </mat-nav-list>
+          </mat-sidenav>
+      
+          <mat-sidenav-content>
+            <router-outlet></router-outlet>
+            <footer class="text-center text-lg-start bg-light text-muted">                                      
+              <!-- Copyright -->
+              <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                © 2022 Copyright:
+                <a class="text-reset fw-bold" href="https://www.linkedin.com/in/jose-vergara-a-1a4853236/" target="_blank">Jose Vergara Alvarez</a>
+              </div>
+              <!-- Copyright -->
+            </footer>
+          </mat-sidenav-content>
+          
+          
+        </mat-sidenav-container>
+        
+      </div>
+      
+    </div>
+    
+    
+    
+  </div>
+  
+
+  <!--<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+                 [attr.role]="(isHandset$ | async) ? 'navigation' : 'dialog'"
+                 [mode]="(isHandset$ | async) ? 'side' : 'over'"
+                 [opened]="(isHandset$ | async) === false" >
+  
+      <mat-toolbar style="background-color: #673ab7; color: aliceblue;">
+        POS
+      </mat-toolbar>
+  
+      <mat-nav-list >
+  
+        <mat-list-item routerLink="/pages/dashboard">
+          <mat-icon mat-list-icon>dashboard</mat-icon>
+          <div mat-line>Dashboard</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/usuarios">
+          <mat-icon mat-list-icon>group</mat-icon>
+          <div mat-line>Usuarios</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/productos">
+          <mat-icon mat-list-icon>collections_bookmark</mat-icon>
+          <div mat-line>Productos</div>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/pages/comprar">
+          <mat-icon mat-list-icon>currency_exchange</mat-icon>
+          <div mat-line>Comprar</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/vender">
+          <mat-icon mat-list-icon>monetization_on</mat-icon>
+          <div mat-line>Vender</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/historialventas">
+          <mat-icon mat-list-icon>edit_note</mat-icon>
+          <div mat-line>Historial ventas</div>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/pages/historialcompras">
+          <mat-icon mat-list-icon>checklist</mat-icon>
+          <div mat-line>Historial compras</div>
+        </mat-list-item>
+  
+        <mat-list-item routerLink="/pages/reportes">
+          <mat-icon mat-list-icon>receipt</mat-icon>
+          <div mat-line>Reportes</div>
+        </mat-list-item>
+  
+      </mat-nav-list>
+  
+    </mat-sidenav> 
+
+    
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="example-spacer">POS</span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+                 routerLink="/login" (click)="cerrarSesion()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </mat-toolbar>
+      <div class="row">
+        <div class="main-box col-lg-2">
+          <mat-nav-list >
+      
+            <mat-list-item routerLink="/pages/dashboard">
+              <mat-icon mat-list-icon>dashboard</mat-icon>
+              <div mat-line>Dashboard</div>
+            </mat-list-item>
+      
+            <mat-list-item routerLink="/pages/usuarios">
+              <mat-icon mat-list-icon>group</mat-icon>
+              <div mat-line>Usuarios</div>
+            </mat-list-item>
+      
+            <mat-list-item routerLink="/pages/productos">
+              <mat-icon mat-list-icon>collections_bookmark</mat-icon>
+              <div mat-line>Productos</div>
+            </mat-list-item>
+      
+            <mat-list-item routerLink="/pages/comprar">
+              <mat-icon mat-list-icon>currency_exchange</mat-icon>
+              <div mat-line>Comprar</div>
+            </mat-list-item>
+      
+            <mat-list-item routerLink="/pages/vender">
+              <mat-icon mat-list-icon>monetization_on</mat-icon>
+              <div mat-line>Vender</div>
+            </mat-list-item>
+      
+            <mat-list-item routerLink="/pages/historialventas">
+              <mat-icon mat-list-icon>edit_note</mat-icon>
+              <div mat-line>Historial ventas</div>
+            </mat-list-item>
+      
+            <mat-list-item routerLink="/pages/historialcompras">
+              <mat-icon mat-list-icon>checklist</mat-icon>
+              <div mat-line>Historial compras</div>
+            </mat-list-item>
+      
+            <mat-list-item routerLink="/pages/reportes">
+              <mat-icon mat-list-icon>receipt</mat-icon>
+              <div mat-line>Reportes</div>
+            </mat-list-item>
+      
+          </mat-nav-list>
+        </div>
+        <div class="col-lg-9">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+      
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>-->
+  
+  
