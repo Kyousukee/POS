@@ -36,19 +36,22 @@
           </mat-form-field>
         </mat-grid-tile>
 
-        <mat-grid-tile>
-          <mat-form-field appearance="outline">
-            <mat-label>Precio Proporcional por Proveedor %</mat-label>
-            <mat-select formControlName="precioProporcional" (selectionChange)="precioProporcional($event.value)">
-              <mat-option [value]="true">
-                Si
-              </mat-option>
-              <mat-option  [value]="false">
-                No
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </mat-grid-tile>
+        <div *ngIf="!localPrecioCompra">
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>Precio Proporcional por Proveedor %</mat-label>
+              <mat-select formControlName="precioProporcional" (selectionChange)="precioProporcional($event.value)">
+                <mat-option [value]="true">
+                  Si
+                </mat-option>
+                <mat-option  [value]="false">
+                  No
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-grid-tile>
+        </div>
+        
 
         <mat-grid-tile>
           <mat-form-field appearance="outline">
@@ -62,29 +65,32 @@
           
         </mat-grid-tile>
           
-        <mat-grid-tile>
-          <mat-form-field appearance="outline">
-            <mat-label>Precio Compra por Proveedor</mat-label>
-            <mat-select formControlName="precioProveedor" (selectionChange)="precioProveedor($event.value)">
-              <mat-option [value]="true">
-                Si
-              </mat-option>
-              <mat-option  [value]="false">
-                No
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </mat-grid-tile>
-
-        <div *ngIf="!precioProve">
+        <div *ngIf="!localPrecioCompra">
           <mat-grid-tile>
             <mat-form-field appearance="outline">
-              <mat-label>Precio Compra</mat-label>
-              <input matInput autocomplete="off" formControlName="precioCompra"  type="number" min="1">
-              <mat-icon matSuffix>attach_money</mat-icon>
+              <mat-label>Precio Compra por Proveedor</mat-label>
+              <mat-select formControlName="precioProveedor" (selectionChange)="precioProveedor($event.value)">
+                <mat-option [value]="true">
+                  Si
+                </mat-option>
+                <mat-option  [value]="false">
+                  No
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </mat-grid-tile>
+  
+          <div *ngIf="!precioProve">
+            <mat-grid-tile>
+              <mat-form-field appearance="outline">
+                <mat-label>Precio Compra</mat-label>
+                <input matInput autocomplete="off" formControlName="precioCompra"  type="number" min="1">
+                <mat-icon matSuffix>attach_money</mat-icon>
+              </mat-form-field>
+            </mat-grid-tile>
+          </div>
         </div>
+        
         
 
         <mat-grid-tile>

@@ -19,6 +19,7 @@ export class NavigationComponent {
   PermisoVender: boolean = true;
   PermisoHistorial: boolean = true;
   PermisoReportes: boolean = true;
+  PermisoReportesCompra: boolean = true;
 
 
 
@@ -29,30 +30,66 @@ export class NavigationComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {
+    console.log(sessionStorage.getItem('session'));
     if (sessionStorage.getItem('session')) {
       this.UsuarioLogueado = JSON.parse(sessionStorage.getItem('session')!) || '';
       if (this.UsuarioLogueado.idRol == 2) {
-        this.PermisoDashboard = false;
-        this.PermisoUsuarios = false;
-        this.PermisoProductos = false;
-        this.PermisoComprar = false;
-        this.PermisoVender = false;
-        this.PermisoHistorial = false;
-        this.PermisoReportes = false;
+        if (this.UsuarioLogueado.idtipolocal==2) {
+          this.PermisoProductos = false;
+          this.PermisoDashboard = false;
+          this.PermisoVender = false;
+          this.PermisoReportes = false;
+          this.PermisoUsuarios = false;
+          this.PermisoHistorial = false;
+        }else{
+          this.PermisoDashboard = false;
+          this.PermisoUsuarios = false;
+          this.PermisoProductos = false;
+          this.PermisoComprar = false;
+          this.PermisoVender = false;
+          this.PermisoHistorial = false;
+          this.PermisoReportes = false;
+          this.PermisoReportesCompra = false;
+        }
+        
       }else if (this.UsuarioLogueado.idRol == 3) {
-        this.PermisoProductos = false;
-        this.PermisoDashboard = false;
-        this.PermisoVender = false;
-        this.PermisoReportes = false;
+        if (this.UsuarioLogueado.idtipolocal==2) {
+          this.PermisoProductos = false;
+          this.PermisoDashboard = false;
+          this.PermisoVender = false;
+          this.PermisoReportes = false;
+          this.PermisoUsuarios = false;
+          this.PermisoHistorial = false;
+        }else{
+          this.PermisoProductos = false;
+          this.PermisoDashboard = false;
+          this.PermisoVender = false;
+          this.PermisoReportes = false;
+          this.PermisoReportesCompra = false;
+        }
+        
       }else if (this.UsuarioLogueado.idRol == 1) {
-        this.PermisoDashboard = false;
-        this.PermisoUsuarios = false;
-        this.PermisoProductos = false;
-        this.PermisoComprar = false;
-        this.PermisoVender = false;
-        this.PermisoHistorial = false;
-        this.PermisoReportes = false;
+        if (this.UsuarioLogueado.idtipolocal==2) {
+          this.PermisoProductos = false;
+          this.PermisoDashboard = false;
+          this.PermisoVender = false;
+          this.PermisoReportes = false;
+          this.PermisoUsuarios = false;
+          this.PermisoHistorial = false;
+        }else{
+          this.PermisoDashboard = false;
+          this.PermisoUsuarios = false;
+          this.PermisoProductos = false;
+          this.PermisoComprar = false;
+          this.PermisoVender = false;
+          this.PermisoHistorial = false;
+          this.PermisoReportes = false;
+          this.PermisoReportesCompra = false;
+        }
+        
       }
+
+      
     }
    }
 

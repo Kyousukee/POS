@@ -24,6 +24,7 @@ export class DialogProductoComponent implements OnInit {
   UsuarioLogueado!: Usuario;
   precioProve:boolean = true;
   precioPropo:boolean = true;
+  localPrecioCompra:boolean = false;
 
 
 
@@ -133,6 +134,10 @@ export class DialogProductoComponent implements OnInit {
         precioProporcional: this.productoEditar.precioProporcional,
         esActivo:this.productoEditar.esActivo
       })
+    }
+
+    if (this.UsuarioLogueado.idtipolocal == 2) {
+      this.localPrecioCompra = true;
     }
   }
 

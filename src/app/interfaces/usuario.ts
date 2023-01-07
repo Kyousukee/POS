@@ -5,6 +5,8 @@ export interface Usuario {
   idRol: number;
   rolDescripcion: string;
   idLocal: number;
+  idtipolocal: number;
+  TipoLocal: string;
   LocalDescripcion: string;
   clave: string;
   esActivo: boolean;

@@ -8,6 +8,7 @@ import { Producto } from '../../../interfaces/producto';
 import { DialogDeleteProductoComponent } from '../modals/dialog-delete-producto/dialog-delete-producto.component';
 import { ProductosServiciosService } from '../../../servicios/productos-servicios.service';
 import { DialogPreciosProveedoresComponent } from '../modals/dialog-precios-proveedores/dialog-precios-proveedores.component';
+import { Usuario } from 'src/app/interfaces/usuario';
 
 const ELEMENT_DATA: Producto[] = [
   // { idProducto: 1, nombre: "yougur gloria", idCategoria: 1, descripcionCategoria:"Lacteos", stock: 30, precio: "2.5" },
@@ -26,15 +27,26 @@ export class ProductosComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'cobro','stock','precioProporcional','precio','precioProveedor','precioCompra', 'acciones'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
+  UsuarioLogueado!: Usuario;
+  localPrecioCompra:boolean = false;
+  
   constructor(
     private dialog: MatDialog,
     private _snackBar: MatSnackBar,
     private _productoServicio: ProductosServiciosService
-  ) { }
+  ) { 
+    if (sessionStorage.getItem('session')) {
+      this.UsuarioLogueado = JSON.parse(sessionStorage.getItem('session')!) || '';
+    }
+  }
 
   ngOnInit(): void {
     this.mostrarProductos();
+
+    if (this.UsuarioLogueado.idtipolocal == 2) {
+      this.localPrecioCompra = true;
+      this.displayedColumns = ['nombre', 'cobro','stock','precio', 'acciones'];
+    }
   }
 
   ngAfterViewInit() {

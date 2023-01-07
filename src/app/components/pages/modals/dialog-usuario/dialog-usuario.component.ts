@@ -124,7 +124,9 @@ export class DialogUsuarioComponent implements OnInit, AfterViewInit {
       rolDescripcion : "",
       clave: this.formUsuario.value.clave,
       esActivo: this.formUsuario.value.esActivo,
-      LocalDescripcion : ""
+      LocalDescripcion : "",
+      idtipolocal:0,
+      TipoLocal:""
     }
 
     

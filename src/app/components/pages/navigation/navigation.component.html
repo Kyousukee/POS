@@ -131,7 +131,7 @@
             <mat-icon mat-list-icon style="color: white;">sell</mat-icon>
           </mat-list-item>
 
-          <mat-list-item routerLink="/pages/reportescompras" matTooltip="Reportes Compras" matTooltipPosition="right" [hidden]="PermisoReportes">
+          <mat-list-item routerLink="/pages/reportescompras" matTooltip="Reportes Compras" matTooltipPosition="right" [hidden]="PermisoReportesCompra">
             <mat-icon mat-list-icon style="color: white;">local_mall</mat-icon>
           </mat-list-item>
     
@@ -179,7 +179,7 @@
                           <div mat-line style="color: white;">Reportes Ventas</div>
                         </mat-list-item>
 
-                        <mat-list-item routerLink="/pages/reportescompras" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoReportes">
+                        <mat-list-item routerLink="/pages/reportescompras" class="labelsidenav" (click)="snav.toggle()" [hidden]="PermisoReportesCompra">
                           <div mat-line style="color: white;">Reportes Compras</div>
                         </mat-list-item>
                   

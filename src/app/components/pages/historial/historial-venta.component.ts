@@ -11,6 +11,7 @@ import { ComprasServiciosService } from '../../../servicios/compras-servicios.se
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as moment from 'moment';
 import { responseHistorial } from 'src/app/interfaces/responseHistorial';
+import { Usuario } from 'src/app/interfaces/usuario';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -49,6 +50,9 @@ export class HistorialVentaComponent implements OnInit {
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  UsuarioLogueado!: Usuario;
+  localPrecioCompra:boolean = false;
+
 
   constructor(
     private fb: FormBuilder,
@@ -72,9 +76,19 @@ export class HistorialVentaComponent implements OnInit {
         fechaFin: ""
       })
     })
+
+    if (sessionStorage.getItem('session')) {
+      this.UsuarioLogueado = JSON.parse(sessionStorage.getItem('session')!) || '';
+    }
    }
 
   ngOnInit(): void {
+    if (this.UsuarioLogueado.idtipolocal == 2) {
+      this.localPrecioCompra = true;
+      this.movimientoItem = [
+        { value: "0", descripcion: "Ventas" }
+      ]
+    }
   }
 
   ngAfterViewInit() {

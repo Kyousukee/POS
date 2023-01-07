@@ -32,6 +32,7 @@ export class VenderComponent implements OnInit {
   filteredOptions!: Producto[];
   agregarProducto!: Producto;
   tipodePago: string = "Efectivo";
+  observacion: string = "";
   totalPagar: number = 0;
 
   formGroup: FormGroup;
@@ -84,6 +85,8 @@ export class VenderComponent implements OnInit {
     
     
     document.getElementById('codbarras1')!.focus();
+
+  
   }
 
   private _filter(value: any): Producto[] {
