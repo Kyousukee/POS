@@ -10,4 +10,6 @@ export interface Usuario {
   LocalDescripcion: string;
   clave: string;
   esActivo: boolean;
+  usuario: string;
+  usu_crea: number
 }

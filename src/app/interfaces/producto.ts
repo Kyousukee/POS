@@ -14,4 +14,5 @@ export interface Producto {
   precioProporcional:boolean,
   id_local: number,
   porcentaje:string,
+  usuario:string
 }

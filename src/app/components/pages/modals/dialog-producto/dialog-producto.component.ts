@@ -158,10 +158,12 @@ export class DialogProductoComponent implements OnInit {
       precioProveedor: this.formProducto.value.precioProveedor,
       precioProporcional: this.formProducto.value.precioProporcional,
       id_local: this.UsuarioLogueado.idLocal,
-      porcentaje:"0"
+      porcentaje:"0",
+      usuario: this.UsuarioLogueado == null ? "" : this.UsuarioLogueado.usuario
+      
     }
 
-
+    
     if (this.productoEditar) {
 
       this._productoServicio.edit(_producto).subscribe({

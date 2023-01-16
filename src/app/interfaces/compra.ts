@@ -10,5 +10,6 @@ export interface Compra{
     ListDetalleCompra?:DetalleCompra[],
     id_local: number,
     conProveedor: boolean,
-    IdProveedor: number
+    IdProveedor: number,
+    usuario:string
 }

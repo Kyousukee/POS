@@ -8,5 +8,6 @@ export interface Venta {
   totalIVA?: string,
   total?: string,
   listDetalleVenta?:DetalleVenta[],
-  id_local: number
+  id_local: number,
+  usuario:string
 }

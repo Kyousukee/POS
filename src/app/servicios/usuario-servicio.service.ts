@@ -25,7 +25,7 @@ export class UsuarioServicioService {
   }
 
   getUsuarios(user: Usuario): Observable<ResponseApi> {
-    console.log(this.UsuarioLogueado);
+    
     return this.http.get <ResponseApi>(`${this.apiBase}GetUsuarios?id_local=${user.idLocal}`)
 
   }

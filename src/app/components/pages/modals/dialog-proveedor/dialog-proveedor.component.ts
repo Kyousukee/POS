@@ -60,7 +60,8 @@ export class DialogProveedorComponent implements OnInit {
       rut_proveedor: this.formProveedor.value.rut_proveedor,
       desc_proveedor: this.formProveedor.value.desc_proveedor,
       esActivo: this.formProveedor.value.esActivo,
-      id_local: this.UsuarioLogueado.idLocal
+      id_local: this.UsuarioLogueado.idLocal,
+      usuario: this.UsuarioLogueado == null ? "" : this.UsuarioLogueado.usuario
     }
 
     if (this.proveedorEditar) {

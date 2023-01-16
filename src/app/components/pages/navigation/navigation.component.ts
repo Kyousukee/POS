@@ -30,7 +30,7 @@ export class NavigationComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {
-    console.log(sessionStorage.getItem('session'));
+    //console.log(sessionStorage.getItem('session'));
     if (sessionStorage.getItem('session')) {
       this.UsuarioLogueado = JSON.parse(sessionStorage.getItem('session')!) || '';
       if (this.UsuarioLogueado.idRol == 2) {

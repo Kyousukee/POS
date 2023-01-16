@@ -274,7 +274,8 @@ export class VenderComponent implements OnInit {
         tipoPago: this.tipodePago,
         total: String(this.totalPagar.toFixed(2)),
         listDetalleVenta: this.ELEMENT_DATA,
-        id_local: this.UsuarioLogueado.idLocal
+        id_local: this.UsuarioLogueado.idLocal,
+        usuario: this.UsuarioLogueado == null ? "" : this.UsuarioLogueado.usuario
       }
 
       // console.log(ventaDto);

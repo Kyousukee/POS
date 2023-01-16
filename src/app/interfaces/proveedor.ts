@@ -3,5 +3,6 @@ export interface Proveedor {
     rut_proveedor: string,
     desc_proveedor: string,
   esActivo: boolean,
-  id_local: number
+  id_local: number,
+  usuario:string
 }

@@ -40,6 +40,7 @@ export class DialogUsuarioComponent implements OnInit, AfterViewInit {
       // idLocal: ['', Validators.required],
       clave: ['', Validators.required],
       esActivo: [true, Validators.required],
+      usuario: ['', Validators.required],
     })
 
 
@@ -101,7 +102,8 @@ export class DialogUsuarioComponent implements OnInit, AfterViewInit {
         nombreApellido: this.usuarioEditar.nombreApellidos,
         correo: this.usuarioEditar.correo,
         /*idRol: this.usuarioEditar.idRol,*/
-        clave: this.usuarioEditar.clave
+        clave: this.usuarioEditar.clave,
+        usuario: this.usuarioEditar.usuario
       })
     }
 
@@ -126,9 +128,11 @@ export class DialogUsuarioComponent implements OnInit, AfterViewInit {
       esActivo: this.formUsuario.value.esActivo,
       LocalDescripcion : "",
       idtipolocal:0,
-      TipoLocal:""
+      TipoLocal:"",
+      usuario: this.formUsuario.value.usuario,
+      usu_crea: this.UsuarioLogueado == null ? 0 : this.UsuarioLogueado.idUsuario
     }
-
+    console.log(_usuario);
     
     if (this.usuarioEditar) {
 

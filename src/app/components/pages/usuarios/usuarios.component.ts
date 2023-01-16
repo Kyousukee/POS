@@ -22,7 +22,7 @@ const ELEMENT_DATA: Usuario[] = [
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['nombreApellidos', 'correo', 'rolDescripcion','acciones'];
+  displayedColumns: string[] = ['nombreApellidos', 'correo','usuario', 'rolDescripcion','acciones'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -55,7 +55,7 @@ export class UsuariosComponent implements OnInit, AfterViewInit {
   mostrarUsuarios() {
     this._usuarioServicio.getUsuarios(this.UsuarioLogueado).subscribe({
       next: (data) => {
-        console.log(data.value);
+        // console.log(data.value);
         if(data.status)
           this.dataSource.data = data.value;
         else

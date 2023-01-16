@@ -341,7 +341,8 @@ export class ComprarComponent implements OnInit {
         ListDetalleCompra: this.ELEMENT_DATA,
         id_local: this.UsuarioLogueado.idLocal,
         conProveedor: this.formGroup.value.compraProveedor,
-        IdProveedor: this.agregarProveedor == null ? 0 : this.agregarProveedor.id_proveedor
+        IdProveedor: this.agregarProveedor == null ? 0 : this.agregarProveedor.id_proveedor,
+        usuario: this.UsuarioLogueado == null ? "" : this.UsuarioLogueado.usuario
       }
 
       
