@@ -48,13 +48,11 @@ export class LoginComponent implements OnInit {
           const usuarioLogin:Usuario = this.usuarioLoginList[0];
           sessionStorage.setItem('session', JSON.stringify(usuarioLogin));
         } else {
-          this.loading = false;
           this._snackBar.open("No se encontraron coincidencias", 'Oops!', { duration: 3000 });
         }
         
       },
       error: (e) => {
-        this.loading = false;
         this._snackBar.open("hubo un error", 'Oops!', { duration:3000 });
       },
       complete: () => {
