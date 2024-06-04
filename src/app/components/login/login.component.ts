@@ -41,18 +41,20 @@ export class LoginComponent implements OnInit {
 
     this._usuarioServicio.getIniciarSesion(correo, clave).subscribe({
       next: (data) => {
-       
+
         if (data.status) {
           this.router.navigate(['pages/dashboard'])
           this.usuarioLoginList = data.value
           const usuarioLogin:Usuario = this.usuarioLoginList[0];
           sessionStorage.setItem('session', JSON.stringify(usuarioLogin));
         } else {
+          this.loading = false;
           this._snackBar.open("No se encontraron coincidencias", 'Oops!', { duration: 3000 });
         }
-        
+
       },
       error: (e) => {
+        this.loading = false;
         this._snackBar.open("hubo un error", 'Oops!', { duration:3000 });
       },
       complete: () => {
