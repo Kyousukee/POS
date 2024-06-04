@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "https://www.POSapi.somee.com",
+        "target": "http://posapi.somee.com",
         "secure": false,
         "logLevel": "debug"
     }
