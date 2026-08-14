@@ -13,9 +13,11 @@
           <mat-form-field appearance="fill">
             <mat-label>Movimiento</mat-label>
             <mat-select formControlName="buscarMovimiento">
-              <mat-option *ngFor="let item of movimientoItem" [value]="item.value">
-                {{item.descripcion}}
-              </mat-option>
+              @for (item of movimientoItem; track item) {
+                <mat-option [value]="item.value">
+                  {{item.descripcion}}
+                </mat-option>
+              }
             </mat-select>
           </mat-form-field>
         </mat-grid-tile>
@@ -24,46 +26,50 @@
           <mat-form-field appearance="fill">
             <mat-label>Buscar Por</mat-label>
             <mat-select formControlName="buscarPor">
-              <mat-option *ngFor="let item of buscarItem" [value]="item.value">
-                {{item.descripcion}}
-              </mat-option>
+              @for (item of buscarItem; track item) {
+                <mat-option [value]="item.value">
+                  {{item.descripcion}}
+                </mat-option>
+              }
             </mat-select>
           </mat-form-field>
         </mat-grid-tile>
-      </mat-grid-list> 
+      </mat-grid-list>
 
       <mat-grid-list cols="3" rowHeight="80px">
 
-        
 
-        <mat-grid-tile *ngIf="formGroup.value.buscarPor=='numero'">
-          <mat-form-field appearance="fill">
-            <mat-label>Número Orden</mat-label>
-            <input matInput formControlName="numero">
-          </mat-form-field>
-        </mat-grid-tile>
 
-        <mat-grid-tile *ngIf="formGroup.value.buscarPor=='fecha'">
+        @if (formGroup.value.buscarPor=='numero') {
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Número Orden</mat-label>
+              <input matInput formControlName="numero">
+            </mat-form-field>
+          </mat-grid-tile>
+        }
 
-          <mat-form-field appearance="fill">
-            <mat-label>Fecha Inicio</mat-label>
-            <input matInput [matDatepicker]="picker1" formControlName="fechaInicio">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-          </mat-form-field>
+        @if (formGroup.value.buscarPor=='fecha') {
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Fecha Inicio</mat-label>
+              <input matInput [matDatepicker]="picker1" formControlName="fechaInicio">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+        }
 
-        </mat-grid-tile>
-
-        <mat-grid-tile *ngIf="formGroup.value.buscarPor=='fecha'">
-
-          <mat-form-field appearance="fill">
-            <mat-label>Fecha Fin</mat-label>
-            <input matInput [matDatepicker]="picker2" formControlName="fechaFin">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-          </mat-form-field>
-
-        </mat-grid-tile>
+        @if (formGroup.value.buscarPor=='fecha') {
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Fecha Fin</mat-label>
+              <input matInput [matDatepicker]="picker2" formControlName="fechaFin">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </mat-grid-tile>
+        }
 
         <mat-grid-tile>
           <button mat-raised-button color="primary" style="width: 80%;" [disabled]="formGroup.invalid" type="submit"><mat-icon>search</mat-icon> Buscar</button>
@@ -125,8 +131,8 @@
         </tr>
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                     showFirstLastButtons
-                     aria-label="Select page of periodic elements">
+        showFirstLastButtons
+        aria-label="Select page of periodic elements">
       </mat-paginator>
 
     </div>

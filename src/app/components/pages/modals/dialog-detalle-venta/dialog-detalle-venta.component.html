@@ -32,27 +32,24 @@
         <input matInput [(ngModel)]="total" readonly="true">
       </mat-form-field>
     </mat-grid-tile>
-    <div *ngIf="opt == 'Compra'">
-      <mat-grid-tile [colspan]="2">
-        <mat-form-field appearance="fill" style="width:95%">
-          <mat-label>Proveedor</mat-label>
-          <input matInput [(ngModel)]="proveedor" readonly="true">
-        </mat-form-field>
-      </mat-grid-tile>
-  
-  
-      <mat-grid-tile>
-        
-      </mat-grid-tile>
-  
-      <mat-grid-tile>
-        
-      </mat-grid-tile>
-    </div>
-    
+    @if (opt == 'Compra') {
+      <div>
+        <mat-grid-tile [colspan]="2">
+          <mat-form-field appearance="fill" style="width:95%">
+            <mat-label>Proveedor</mat-label>
+            <input matInput [(ngModel)]="proveedor" readonly="true">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+        </mat-grid-tile>
+        <mat-grid-tile>
+        </mat-grid-tile>
+      </div>
+    }
+
   </mat-grid-list>
 
-  
+
 
 
   <h4>Lista de productos</h4>

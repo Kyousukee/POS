@@ -32,23 +32,23 @@
         <!-- Weight Column -->
         <ng-container matColumnDef="Estado">
           <th mat-header-cell *matHeaderCellDef> Estado </th>
-          <td mat-cell *matCellDef="let element"> 
-            <ng-container *ngIf="element.esActivo==true">
+          <td mat-cell *matCellDef="let element">
+            @if (element.esActivo==true) {
               Activo
-            </ng-container>  
-            <ng-container *ngIf="element.esActivo==false">
+            }
+            @if (element.esActivo==false) {
               Inactivo
-            </ng-container>  
+            }
           </td>
         </ng-container>
-        
+
         <ng-container matColumnDef="Productos">
           <th mat-header-cell *matHeaderCellDef> Productos </th>
           <td mat-cell *matCellDef="let element">
             <button mat-icon-button color="primary" (click)="verProductos(element)">
               <mat-icon>inventory</mat-icon>
             </button>
-            
+
           </td>
         </ng-container>
 
@@ -74,8 +74,8 @@
         </tr>
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                     showFirstLastButtons
-                     aria-label="Select page of periodic elements">
+        showFirstLastButtons
+        aria-label="Select page of periodic elements">
       </mat-paginator>
 
     </div>
