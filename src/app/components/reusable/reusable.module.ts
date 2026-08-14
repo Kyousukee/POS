@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 //Modulos
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 //angular material
@@ -37,77 +36,63 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
-@NgModule({
-  declarations: [],
-  imports: [
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
-
-    CommonModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSelectModule,
-    MatIconModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatGridListModule,
-    MatExpansionModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTooltipModule,
-    MatTabsModule,
-
-    MatTableModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    MatAutocompleteModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MomentDateModule,
-    MatButtonToggleModule
-
-  ],
-  exports: [
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
-
-    CommonModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSelectModule,
-    MatIconModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatGridListModule,
-    MatExpansionModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTooltipModule,
-    MatTabsModule,
-
-    MatTableModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    MatAutocompleteModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MomentDateModule,
-    MatButtonToggleModule
-    
-  ],
-  providers: [
-    MatDatepickerModule,
-    MatNativeDateModule
-  ]
-})
+@NgModule({ declarations: [],
+    exports: [
+        ReactiveFormsModule,
+        FormsModule,
+        CommonModule,
+        MatCardModule,
+        MatButtonModule,
+        MatInputModule,
+        MatSelectModule,
+        MatIconModule,
+        MatProgressBarModule,
+        MatProgressSpinnerModule,
+        MatGridListModule,
+        MatExpansionModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatTooltipModule,
+        MatTabsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        MatAutocompleteModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MomentDateModule,
+        MatButtonToggleModule
+    ], imports: [ReactiveFormsModule,
+        FormsModule,
+        CommonModule,
+        MatCardModule,
+        MatButtonModule,
+        MatInputModule,
+        MatSelectModule,
+        MatIconModule,
+        MatProgressBarModule,
+        MatProgressSpinnerModule,
+        MatGridListModule,
+        MatExpansionModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule,
+        MatTooltipModule,
+        MatTabsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        MatAutocompleteModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MomentDateModule,
+        MatButtonToggleModule], providers: [
+        MatDatepickerModule,
+        MatNativeDateModule
+    ] })
 export class ReusableModule { }

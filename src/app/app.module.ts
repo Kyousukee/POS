@@ -8,6 +8,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ReusableModule } from './components/reusable/reusable.module';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
@@ -26,7 +27,7 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     ReusableModule,
     NgxMaskModule.forRoot()
   ],
-  providers: [],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
