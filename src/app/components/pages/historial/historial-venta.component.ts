@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+﻿import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -9,7 +9,7 @@ import { DialogDetalleVentaComponent } from '../modals/dialog-detalle-venta/dial
 import { VentasServiciosService } from '../../../servicios/ventas-servicios.service';
 import { ComprasServiciosService } from '../../../servicios/compras-servicios.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import * as moment from 'moment';
+import moment from 'moment';
 import { responseHistorial } from 'src/app/interfaces/responseHistorial';
 import { Usuario } from 'src/app/interfaces/usuario';
 

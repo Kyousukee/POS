@@ -31,20 +31,23 @@
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^20.3.34",
+    "@angular/build": "^20.3.34",
     "@angular/cli": "~20.3.34",
     "@angular/compiler-cli": "^20.3.28",
-    "@types/jasmine": "~4.0.0",
-    "angular-cli-ghpages": "^1.0.5",
-    "jasmine-core": "~4.1.0",
-    "karma": "~6.3.0",
-    "karma-chrome-launcher": "~3.1.0",
+    "@types/jasmine": "~5.1.0",
+    "angular-cli-ghpages": "^2.0.3",
+    "jasmine-core": "~5.4.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.0.0",
-    "karma-jasmine-html-reporter": "~1.7.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.8.3"
   },
   "allowScripts": {
-    "esbuild@0.15.5": true
+    "@parcel/watcher@2.6.0": true,
+    "esbuild@0.28.1": true,
+    "lmdb@3.4.2": true,
+    "msgpackr-extract@3.0.4": true
   }
 }
