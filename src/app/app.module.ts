@@ -7,10 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ReusableModule } from './components/reusable/reusable.module';
 import { AppRoutingModule } from './app-routing.module';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { provideEnvironmentNgxMask } from 'ngx-mask'
 import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
-
-export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
 
 
 @NgModule({
@@ -24,10 +22,12 @@ export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
     AppRoutingModule,
     BrowserAnimationsModule,
     
-    ReusableModule,
-    NgxMaskModule.forRoot()
+    ReusableModule
   ],
-  providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())],
+  providers: [
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
+    provideEnvironmentNgxMask()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
