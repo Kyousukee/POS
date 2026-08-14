@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,6 +13,7 @@ import { Proveedorproducto } from '../../../../interfaces/proveedorproducto';
     selector: 'app-dialog-proveedorproducto-insert',
     templateUrl: './dialog-proveedorproducto-insert.component.html',
     styleUrls: ['./dialog-proveedorproducto-insert.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DialogProveedorproductoInsertComponent implements OnInit {

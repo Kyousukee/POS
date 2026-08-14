@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
+import { Component, forwardRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators  } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { DetalleCompra } from '../../../interfaces/detalle-compra';
@@ -20,6 +20,7 @@ import { DialogCambiarProveedorCompraComponent } from '../modals/dialog-cambiar-
     selector: 'app-comprar',
     templateUrl: './comprar.component.html',
     styleUrls: ['./comprar.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ComprarComponent implements OnInit {

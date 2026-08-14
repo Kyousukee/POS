@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Proveedor } from '../../../../interfaces/proveedor';
 
@@ -6,6 +6,7 @@ import { Proveedor } from '../../../../interfaces/proveedor';
     selector: 'app-dialog-delete-proveedor',
     templateUrl: './dialog-delete-proveedor.component.html',
     styleUrls: ['./dialog-delete-proveedor.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DialogDeleteProveedorComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { DetalleVenta } from '../../../interfaces/detalle-venta';
@@ -18,6 +18,7 @@ import { Usuario } from 'src/app/interfaces/usuario';
     selector: 'app-vender',
     templateUrl: './vender.component.html',
     styleUrls: ['./vender.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 

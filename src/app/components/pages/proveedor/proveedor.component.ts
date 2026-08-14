@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,6 +20,7 @@ const ELEMENT_DATA: Proveedor[] = [
     selector: 'app-proveedor',
     templateUrl: './proveedor.component.html',
     styleUrls: ['./proveedor.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ProveedorComponent implements OnInit {

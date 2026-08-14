@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { Chart, registerables,Colors } from 'node_modules/chart.js';
 import { DashboardServiciosService } from '../../../servicios/dashboard-servicios.service';
@@ -8,6 +8,7 @@ Chart.register(...registerables,Colors);
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DashboardComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ResponseDialogHistorial } from 'src/app/interfaces/responseDialogHistorial';
 import { responseHistorial } from 'src/app/interfaces/responseHistorial';
@@ -9,6 +9,7 @@ import { Venta } from '../../../../interfaces/venta';
     selector: 'app-dialog-detalle-venta',
     templateUrl: './dialog-detalle-venta.component.html',
     styleUrls: ['./dialog-detalle-venta.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DialogDetalleVentaComponent implements OnInit {

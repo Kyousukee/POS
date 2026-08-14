@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DetalleCompra } from '../../../../interfaces/detalle-compra';
 import { Compra } from '../../../../interfaces/compra';
@@ -7,6 +7,7 @@ import { Compra } from '../../../../interfaces/compra';
     selector: 'app-dialog-detalle-compra',
     templateUrl: './dialog-detalle-compra.component.html',
     styleUrls: ['./dialog-detalle-compra.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DialogDetalleCompraComponent implements OnInit {

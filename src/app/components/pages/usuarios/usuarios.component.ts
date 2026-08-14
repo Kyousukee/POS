@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -20,6 +20,7 @@ const ELEMENT_DATA: Usuario[] = [
     selector: 'app-usuarios',
     templateUrl: './usuarios.component.html',
     styleUrls: ['./usuarios.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class UsuariosComponent implements OnInit, AfterViewInit {

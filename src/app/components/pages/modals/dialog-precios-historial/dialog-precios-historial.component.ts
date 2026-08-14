@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
@@ -17,6 +17,7 @@ const ELEMENT_DATA: PrecioHistorial[] = [
     selector: 'app-dialog-precios-historial',
     templateUrl: './dialog-precios-historial.component.html',
     styleUrls: ['./dialog-precios-historial.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DialogPreciosHistorialComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,6 +16,7 @@ const ELEMENT_DATA: PrecioProveedor[] = [
     selector: 'app-dialog-precios-proveedores',
     templateUrl: './dialog-precios-proveedores.component.html',
     styleUrls: ['./dialog-precios-proveedores.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DialogPreciosProveedoresComponent implements OnInit {

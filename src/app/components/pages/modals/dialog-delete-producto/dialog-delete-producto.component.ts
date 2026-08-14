@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Producto } from '../../../../interfaces/producto';
 
@@ -6,6 +6,7 @@ import { Producto } from '../../../../interfaces/producto';
     selector: 'app-dialog-delete-producto',
     templateUrl: './dialog-delete-producto.component.html',
     styleUrls: ['./dialog-delete-producto.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DialogDeleteProductoComponent implements OnInit {
