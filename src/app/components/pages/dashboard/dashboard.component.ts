@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
-import { Chart, registerables,Colors } from 'node_modules/chart.js';
+import { Chart, registerables,Colors } from 'chart.js';
 import { DashboardServiciosService } from '../../../servicios/dashboard-servicios.service';
 Chart.register(...registerables,Colors);
 
