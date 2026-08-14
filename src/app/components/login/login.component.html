@@ -1,38 +1,37 @@
-<div class="body">
-  <mat-card appearance="outlined" class="loginCard">
-    <div>
-      <img src="assets/img/POS4.png" width="250px">
+<div class="login-wrap">
+  <div class="login-card">
+
+    <div class="login-brand">
+      <img src="assets/img/POS4.png" alt="POS">
     </div>
-    <!-- <div class="header">
-    <h2>Iniciar Sesion</h2>
-  </div> -->
-  <mat-card-content style="padding-bottom: 15px;">
-    <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="formLogin">
-      <div>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Email o Usuario</mat-label>
-          <input formControlName="email" matInput autocomplete="off" />
-          <mat-icon matSuffix>mail</mat-icon>
-        </mat-form-field>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Contraseña</mat-label>
-          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" autocomplete="off">
-          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" type="button">
-            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-        </mat-form-field>
-        <button class="full-width" mat-raised-button color="primary" type="submit" [disabled]="formLogin.invalid">
-          Ingresar
-          <mat-icon matSuffix>login</mat-icon>
+
+    <h1 class="login-title">Iniciar sesión</h1>
+    <p class="login-sub">Ingresa tus credenciales para continuar</p>
+
+    <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="formLogin" class="login-form">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Email o Usuario</mat-label>
+        <input formControlName="email" matInput autocomplete="off" />
+        <mat-icon matSuffix>mail</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" autocomplete="off">
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" type="button">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
-      </div>
+      </mat-form-field>
+
+      <button class="full-width login-btn" mat-raised-button color="primary" type="submit" [disabled]="formLogin.invalid || loading">
+        <mat-icon>login</mat-icon>
+        Ingresar
+      </button>
     </form>
 
-  </mat-card-content>
-  <mat-card-footer>
     @if (loading) {
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      <mat-progress-bar mode="indeterminate" class="login-progress"></mat-progress-bar>
     }
-  </mat-card-footer>
-</mat-card>
+
+  </div>
 </div>

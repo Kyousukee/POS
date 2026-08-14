@@ -1,30 +1,317 @@
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* ============================================================
+   Design tokens
+   ============================================================ */
+:root {
+  --brand: #5b3ec8;
+  --brand-strong: #4a2fb0;
+  --brand-soft: #efeaff;
+  --brand-contrast: #ffffff;
 
-::-webkit-scrollbar {
-    -webkit-appearance: none;
-  }
-  
-::-webkit-scrollbar:vertical {
-    width:10px;
-  }
-  
-::-webkit-scrollbar-button:increment,::-webkit-scrollbar-button {
-    display: none;
-  } 
-  
-::-webkit-scrollbar:horizontal {
-    height: 10px;
-  }
-  
+  --accent: #f5a524;
+  --danger: #e5484d;
+  --success: #12a150;
+
+  --bg: #f4f5f9;
+  --surface: #ffffff;
+  --surface-muted: #fafafc;
+  --border: #e6e6ef;
+  --text: #17161c;
+  --text-muted: #6b6a78;
+
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 22px;
+
+  --shadow-1: 0 1px 2px rgba(20, 18, 40, .04), 0 4px 16px rgba(20, 18, 40, .06);
+  --shadow-2: 0 8px 28px rgba(20, 18, 40, .12);
+
+  --gutter: clamp(14px, 2.5vw, 32px);
+  --header-h: 64px;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Roboto, "Helvetica Neue", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+img { max-width: 100%; }
+
+/* ============================================================
+   Layout de página
+   ============================================================ */
+.page {
+  padding: var(--gutter);
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: clamp(14px, 2vw, 22px);
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  font-size: clamp(1.15rem, 1rem + 1vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+}
+
+.page-title .title-icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+
+.page-title .title-icon .mat-icon {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+
+.page-subtitle {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: .875rem;
+  font-weight: 400;
+}
+
+/* ============================================================
+   Superficies
+   ============================================================ */
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.card-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px clamp(12px, 2vw, 20px);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-muted);
+}
+
+.card-toolbar .toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.card-body {
+  padding: clamp(12px, 2vw, 20px);
+}
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   Formularios responsivos (reemplazo de mat-grid-list)
+   ============================================================ */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 4px 16px;
+  align-items: start;
+}
+
+.form-grid .mat-mdc-form-field { width: 100%; }
+
+.form-grid .field-wide { grid-column: span 2; }
+
+@media (max-width: 720px) {
+  .form-grid .field-wide { grid-column: span 1; }
+}
+
+.form-grid .field-action {
+  display: flex;
+  align-items: center;
+  padding-bottom: 22px;
+}
+
+.form-grid .field-action button { width: 100%; }
+
+.filter-field { width: min(340px, 100%); }
+
+/* ============================================================
+   Tablas
+   ============================================================ */
+.table-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table.mat-mdc-table {
+  width: 100%;
+  background: transparent;
+}
+
+/* En páginas completas la tabla nunca se comprime: se desplaza horizontal. */
+.page table.mat-mdc-table { min-width: 620px; }
+
+.mat-mdc-header-row {
+  background: var(--surface-muted);
+}
+
+.mat-mdc-header-cell {
+  font-weight: 600 !important;
+  color: var(--text-muted) !important;
+  font-size: .78rem !important;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mat-mdc-cell {
+  color: var(--text);
+  font-size: .9rem;
+}
+
+.mat-mdc-row:hover {
+  background: var(--brand-soft);
+  transition: background .15s ease;
+}
+
+.mat-mdc-row:last-of-type .mat-mdc-cell { border-bottom: none; }
+
+.empty-cell {
+  padding: 28px 16px !important;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: .9rem;
+}
+
+.mat-mdc-paginator {
+  background: var(--surface-muted) !important;
+  border-top: 1px solid var(--border);
+}
+
+/* ============================================================
+   Overrides de Material
+   ============================================================ */
+.mat-mdc-card {
+  border-radius: var(--radius) !important;
+  border-color: var(--border) !important;
+}
+
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-outlined-button,
+.mat-mdc-button {
+  border-radius: 999px !important;
+  letter-spacing: .01em !important;
+  font-weight: 500 !important;
+}
+
+.mat-mdc-raised-button { box-shadow: var(--shadow-1) !important; }
+
+.mat-mdc-dialog-surface {
+  border-radius: var(--radius) !important;
+}
+
+.mat-mdc-tab-group .mat-mdc-tab-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  border-radius: 12px !important;
+}
+
+/* Diálogos: contenido siempre usable en móvil */
+.mat-mdc-dialog-content { max-height: 70vh; }
+
+@media (max-width: 599px) {
+  .mat-mdc-dialog-container .mat-mdc-dialog-surface { border-radius: 14px !important; }
+  .mat-mdc-dialog-actions { flex-wrap: wrap; gap: 8px; }
+}
+
+/* Chips informativos */
+.info-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: var(--brand-strong);
+  font-size: .78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.info-chip .mat-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+.badge-ok, .badge-off {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+.badge-ok { background: #e4f7ed; color: var(--success); }
+.badge-off { background: #f1f1f4; color: var(--text-muted); }
+
+/* ============================================================
+   Scrollbars
+   ============================================================ */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-button { display: none; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-    background-color: #797979;
-    border-radius: 20px;
-    border: 2px solid #f1f2f3;
-  }
-  
-::-webkit-scrollbar-track {
-    border-radius: 10px;  
-  }
+  background-color: #c7c6d4;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { background-color: #a9a8ba; }

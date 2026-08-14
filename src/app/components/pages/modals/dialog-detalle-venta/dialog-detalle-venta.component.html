@@ -1,92 +1,70 @@
-
 <h2 mat-dialog-title>Detalle {{opt}}</h2>
 <mat-dialog-content class="mat-typography">
 
-  <mat-grid-list cols="4" rowHeight="70px">
+  <div class="form-grid detalle-grid">
 
-    <mat-grid-tile>
-      <mat-form-field appearance="fill" style="width:95%">
-        <mat-label>Fecha Registro</mat-label>
-        <input matInput [(ngModel)]="fechaRegistro" readonly="true">
-      </mat-form-field>
-    </mat-grid-tile>
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha Registro</mat-label>
+      <input matInput [(ngModel)]="fechaRegistro" readonly="true">
+    </mat-form-field>
 
-    <mat-grid-tile>
-      <mat-form-field appearance="fill" style="width: 95%">
-        <mat-label>Numero Registro</mat-label>
-        <input matInput [(ngModel)]="numero" readonly="true">
-      </mat-form-field>
-    </mat-grid-tile>
+    <mat-form-field appearance="outline">
+      <mat-label>Numero Registro</mat-label>
+      <input matInput [(ngModel)]="numero" readonly="true">
+    </mat-form-field>
 
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo de Pago</mat-label>
+      <input matInput [(ngModel)]="tipoPago" readonly="true">
+    </mat-form-field>
 
-    <mat-grid-tile>
-      <mat-form-field appearance="fill" style="width: 95%">
-        <mat-label>Tipo de Pago</mat-label>
-        <input matInput [(ngModel)]="tipoPago" readonly="true">
-      </mat-form-field>
-    </mat-grid-tile>
+    <mat-form-field appearance="outline">
+      <mat-label>Total</mat-label>
+      <input matInput [(ngModel)]="total" readonly="true">
+    </mat-form-field>
 
-    <mat-grid-tile>
-      <mat-form-field appearance="fill" style="width: 95%">
-        <mat-label>Total</mat-label>
-        <input matInput [(ngModel)]="total" readonly="true">
-      </mat-form-field>
-    </mat-grid-tile>
     @if (opt == 'Compra') {
-      <div>
-        <mat-grid-tile [colspan]="2">
-          <mat-form-field appearance="fill" style="width:95%">
-            <mat-label>Proveedor</mat-label>
-            <input matInput [(ngModel)]="proveedor" readonly="true">
-          </mat-form-field>
-        </mat-grid-tile>
-        <mat-grid-tile>
-        </mat-grid-tile>
-        <mat-grid-tile>
-        </mat-grid-tile>
-      </div>
+      <mat-form-field appearance="outline" class="field-wide">
+        <mat-label>Proveedor</mat-label>
+        <input matInput [(ngModel)]="proveedor" readonly="true">
+      </mat-form-field>
     }
 
-  </mat-grid-list>
+  </div>
 
+  <p class="section-title">Lista de productos</p>
 
+  <div class="table-wrap">
+    <div class="table-scroll">
+      <table mat-table [dataSource]="detalleVenta">
 
+        <ng-container matColumnDef="producto">
+          <th mat-header-cell *matHeaderCellDef> Producto </th>
+          <td mat-cell *matCellDef="let element"> {{element.descripcionProducto}} </td>
+        </ng-container>
 
-  <h4>Lista de productos</h4>
+        <ng-container matColumnDef="cantidad">
+          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+          <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+        </ng-container>
 
-  <table mat-table [dataSource]="detalleVenta" class="mat-elevation-z2">
+        <ng-container matColumnDef="precio">
+          <th mat-header-cell *matHeaderCellDef> Precio </th>
+          <td mat-cell *matCellDef="let element"> {{element.precioTexto}} </td>
+        </ng-container>
 
-    <!--- Note that these columns can be defined in any order.
-    The actual rendered columns are set as a property on the row definition" -->
-    <!-- Position Column -->
-    <ng-container matColumnDef="producto">
-      <th mat-header-cell *matHeaderCellDef> Producto </th>
-      <td mat-cell *matCellDef="let element"> {{element.descripcionProducto}} </td>
-    </ng-container>
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef> Total </th>
+          <td mat-cell *matCellDef="let element"> {{element.totalTexto}} </td>
+        </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="cantidad">
-      <th mat-header-cell *matHeaderCellDef> Cantidad  </th>
-      <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="precio">
-      <th mat-header-cell *matHeaderCellDef> Precio </th>
-      <td mat-cell *matCellDef="let element"> {{element.precioTexto}} </td>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="total">
-      <th mat-header-cell *matHeaderCellDef> Total </th>
-      <td mat-cell *matCellDef="let element"> {{element.totalTexto}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close cdkFocusInitial color="warn">Volver</button>
+  <button mat-raised-button mat-dialog-close cdkFocusInitial color="primary">Volver</button>
 </mat-dialog-actions>

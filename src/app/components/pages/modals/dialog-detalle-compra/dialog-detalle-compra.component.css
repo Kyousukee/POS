@@ -1,5 +1,8 @@
+.detalle-grid {
+  min-width: min(680px, 74vw);
+  margin-top: 6px;
+}
 
 table {
-    width: 100%;
-  }
-  
+  width: 100%;
+}

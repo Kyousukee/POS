@@ -1,95 +1,87 @@
+<div class="page">
 
-<h1 style="margin:20px 0px 0px 40px"><mat-icon mat-list-icon style="color: dark;">monetization_on</mat-icon> Ventas</h1>
-<mat-card appearance="outlined" style="margin: 20px 40px 40px 40px">
+  <header class="page-header">
+    <h1 class="page-title">
+      <span class="title-icon"><mat-icon>monetization_on</mat-icon></span>
+      Ventas
+    </h1>
+  </header>
 
+  <section class="surface-card">
 
-  <mat-card-content class="dashboard-card-content">
+    <div class="card-body">
 
-    <form class="example-form" [formGroup]="formGroup" (ngSubmit)="onSubmitForm()">
-      <mat-grid-list cols="4" rowHeight="80px">
-        <mat-grid-tile [colspan]="2">
-          <mat-form-field class="example-full-width" appearance="fill">
+      <form class="pos-form" [formGroup]="formGroup" (ngSubmit)="onSubmitForm()">
+        <div class="form-grid">
+
+          <mat-form-field class="field-wide" appearance="outline">
+            <mat-label>Código de barras</mat-label>
             <input type="text" id="codbarras1"
-              placeholder="Lector Codigo de barras..."
+              placeholder="Lector código de barras..."
               aria-label="Codigo Barras"
               formControlName="codbarras"
               matInput cdkFocusInitial autofocus (keyup.enter)="onEnterCodBarras($event)">
+            <mat-icon matSuffix>qr_code_scanner</mat-icon>
+          </mat-form-field>
 
-            </mat-form-field>
-          </mat-grid-tile>
-          <mat-grid-tile></mat-grid-tile>
-          <mat-grid-tile></mat-grid-tile>
-
-
-
-          <mat-grid-tile [colspan]="2">
-
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Producto</mat-label>
-              <input type="text"
-                placeholder="Buscar..."
-                aria-label="Number"
-                matInput
-                [matAutocomplete]="auto"
-                formControlName="producto">
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
-                  (optionSelected)="productoSeleccionado($event)"
-                  [displayWith]="displayProducto">
-                  @for (option of filteredOptions; track option) {
-                    <mat-option [value]="option">
-                      {{option.nombre}}
-                    </mat-option>
-                  }
-                </mat-autocomplete>
-              </mat-form-field>
-
-
-
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-              <mat-form-field class="example-full-width" appearance="fill" style="margin-left: 40px;">
-                @if (cobroPor==1) {
-                  <mat-label>Cantidad</mat-label>
+          <mat-form-field class="field-wide" appearance="outline">
+            <mat-label>Producto</mat-label>
+            <input type="text"
+              placeholder="Buscar..."
+              aria-label="Producto"
+              matInput
+              [matAutocomplete]="auto"
+              formControlName="producto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                (optionSelected)="productoSeleccionado($event)"
+                [displayWith]="displayProducto">
+                @for (option of filteredOptions; track option) {
+                  <mat-option [value]="option">
+                    {{option.nombre}}
+                  </mat-option>
                 }
-                @if (cobroPor==2) {
-                  <mat-label>Kilos</mat-label>
-                }
-                <input matInput type="number" formControlName="cantidad" min="1">
-              </mat-form-field>
-            </mat-grid-tile>
+              </mat-autocomplete>
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
 
-            <mat-grid-tile>
-              <button mat-raised-button color="primary" style="width: 80%;" [disabled]="formGroup.invalid"><mat-icon>add</mat-icon> Agregar</button>
-            </mat-grid-tile>
+          <mat-form-field appearance="outline">
+            @if (cobroPor==1) {
+              <mat-label>Cantidad</mat-label>
+            }
+            @if (cobroPor==2) {
+              <mat-label>Kilos</mat-label>
+            }
+            <input matInput type="number" formControlName="cantidad" min="1">
+          </mat-form-field>
 
-          </mat-grid-list>
-        </form>
+          <div class="field-action">
+            <button mat-raised-button color="primary" [disabled]="formGroup.invalid">
+              <mat-icon>add</mat-icon> Agregar
+            </button>
+          </div>
 
+        </div>
+      </form>
 
-
-        <div class="mat-elevation-z2">
+      <div class="table-wrap">
+        <div class="table-scroll">
           <table mat-table [dataSource]="dataSource">
 
-            <!-- Position Column -->
             <ng-container matColumnDef="producto">
               <th mat-header-cell *matHeaderCellDef> Producto </th>
               <td mat-cell *matCellDef="let element"> {{element.descripcionProducto}} </td>
             </ng-container>
 
-            <!-- Name Column -->
             <ng-container matColumnDef="cobro">
               <th mat-header-cell *matHeaderCellDef> Cobro </th>
               <td mat-cell *matCellDef="let element"> {{element.descripcionCobro}} </td>
             </ng-container>
 
-            <!-- Name Column -->
             <ng-container matColumnDef="cantidad">
               <th mat-header-cell *matHeaderCellDef> Cantidad </th>
               <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
             </ng-container>
 
-            <!-- Weight Column -->
             <ng-container matColumnDef="precio">
               <th mat-header-cell *matHeaderCellDef> Precio </th>
               <td mat-cell *matCellDef="let element"> {{element.precioTexto | number}} </td>
@@ -101,71 +93,51 @@
             </ng-container>
 
             <ng-container matColumnDef="accion">
-              <th mat-header-cell *matHeaderCellDef style="width:160px"> </th>
+              <th mat-header-cell *matHeaderCellDef style="width:110px"> </th>
               <td mat-cell *matCellDef="let element">
-                <button mat-icon-button color="warn" (click)="eliminarProducto(element)">
+                <button mat-icon-button color="warn" (click)="eliminarProducto(element)" matTooltip="Quitar">
                   <mat-icon>delete</mat-icon>
                 </button>
-                @if (element.descripcionCobro=='UNIDAD') {
-                  <ng-container ng>
-                    @if (element.cantidad>1) {
-                      <button mat-icon-button color="warn" (click)="descontarProducto(element)">
-                        <mat-icon>remove_circle</mat-icon>
-                      </button>
-                    }
-                  </ng-container>
+                @if (element.descripcionCobro=='UNIDAD' && element.cantidad>1) {
+                  <button mat-icon-button color="warn" (click)="descontarProducto(element)" matTooltip="Descontar uno">
+                    <mat-icon>remove_circle</mat-icon>
+                  </button>
                 }
               </td>
             </ng-container>
 
-
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell empty-cell" [attr.colspan]="displayedColumns.length">
+                Agrega productos para iniciar la venta
+              </td>
+            </tr>
           </table>
         </div>
-        <mat-grid-list cols="4" rowHeight="80px">
+      </div>
 
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="80px">
+      <div class="checkout-bar">
+        <mat-form-field appearance="outline" class="pago-field" subscriptSizing="dynamic">
+          <mat-label>Tipo de pago</mat-label>
+          <mat-select [(value)]="tipodePago">
+            <mat-option value="Efectivo">Efectivo</mat-option>
+            <mat-option value="Tarjeta">Tarjeta</mat-option>
+          </mat-select>
+        </mat-form-field>
 
+        <div class="total-box">
+          <span class="total-label">Total</span>
+          <strong class="total-value">{{totalPagar | currency:'CLP'}}</strong>
+        </div>
 
+        <button mat-raised-button color="primary" class="registrar-btn"
+          [disabled]="ELEMENT_DATA.length< 1 || deshabilitado" (click)="registrarCompra()">
+          <mat-icon>new_label</mat-icon> Registrar
+        </button>
+      </div>
 
-
-          <mat-grid-tile colspan="2">
-          </mat-grid-tile>
-
-
-          <mat-grid-tile>
-
-            <mat-form-field  class="example-full-width" appearance="fill"  style="margin-left: 40px;">
-              <mat-label>Tipo de pago</mat-label>
-              <mat-select [(value)]="tipodePago">
-                <mat-option value="Efectivo">Efectivo</mat-option>
-                <mat-option value="Tarjeta">Tarjeta</mat-option>
-              </mat-select>
-            </mat-form-field>
-
-          </mat-grid-tile>
-          <mat-grid-tile style="text-align:end">
-            <button mat-raised-button color="accent"  style="width: 80%;">Total:  {{totalPagar | currency:'CLP'}}</button>
-          </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="80px">
-          <mat-grid-tile></mat-grid-tile>
-          <mat-grid-tile></mat-grid-tile>
-          <mat-grid-tile>
-
-
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <button mat-raised-button color="primary" style="width: 80%;" [disabled]="ELEMENT_DATA.length< 1 || deshabilitado" (click)="registrarCompra()">
-              <mat-icon>new_label</mat-icon>
-              Registrar
-            </button>
-          </mat-grid-tile>
-        </mat-grid-list>
-
-
-      </mat-card-content>
-
-    </mat-card>
+    </div>
+  </section>
+</div>

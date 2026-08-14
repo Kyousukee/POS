@@ -1,8 +1,13 @@
-mat-form-field {
-    width: 100%;
-    margin: 10px 0px;
-  }
-  
-  table {
-    width: 100%;
-  }
+.dialog-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 0 14px;
+}
+
+.dialog-table {
+  min-width: min(620px, 74vw);
+}
+
+table {
+  width: 100%;
+}

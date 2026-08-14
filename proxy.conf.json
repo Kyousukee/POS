@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "https://posapi.somee.com",
+        "target": "https://localhost:44379",
         "secure": false,
         "logLevel": "debug"
     }

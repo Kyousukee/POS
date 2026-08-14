@@ -1,93 +1,61 @@
+<div class="page">
 
-<h1 style="margin:20px 0px 0px 40px"><mat-icon mat-list-icon style="color: dark;">dashboard</mat-icon> DashBoard - Resumen última semana</h1>
-<mat-card appearance="outlined" style="margin: 20px 40px 40px 40px">
+  <header class="page-header">
+    <div>
+      <h1 class="page-title">
+        <span class="title-icon"><mat-icon>dashboard</mat-icon></span>
+        Dashboard
+      </h1>
+      <p class="page-subtitle">Resumen de la última semana</p>
+    </div>
+  </header>
 
+  <div class="stats-grid">
 
-  <mat-card-content class="dashboard-card-content">
-    <mat-grid-list cols="3" rowHeight="100px">
+    <div class="stat-card">
+      <span class="stat-icon icon-ingresos"><mat-icon>payments</mat-icon></span>
+      <div class="stat-text">
+        <span class="stat-label">Total Ingresos</span>
+        <strong class="stat-value">{{totalIngresos | currency:'CLP'}}</strong>
+      </div>
+    </div>
 
-      <mat-grid-tile>
+    <div class="stat-card">
+      <span class="stat-icon icon-ventas"><mat-icon>sell</mat-icon></span>
+      <div class="stat-text">
+        <span class="stat-label">Total Ventas</span>
+        <strong class="stat-value">{{totalVentas}}</strong>
+      </div>
+    </div>
 
-        <mat-card appearance="outlined" class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar>
-              <mat-icon color="accent">payments</mat-icon>
-            </div>
-            <mat-card-title>Total Ingresos</mat-card-title>
-            <mat-card-subtitle>{{totalIngresos | currency:'CLP'}}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
+    <div class="stat-card">
+      <span class="stat-icon icon-productos"><mat-icon>collections_bookmark</mat-icon></span>
+      <div class="stat-text">
+        <span class="stat-label">Total Productos</span>
+        <strong class="stat-value">{{totalProductos}}</strong>
+      </div>
+    </div>
 
-      </mat-grid-tile>
+  </div>
 
-      <mat-grid-tile>
-
-        <mat-card appearance="outlined" class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar>
-              <mat-icon color="warn">sell</mat-icon>
-            </div>
-            <mat-card-title>Total Ventas</mat-card-title>
-            <mat-card-subtitle>{{totalVentas}}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
-
-      </mat-grid-tile>
-
-
-      <mat-grid-tile>
-        <mat-card appearance="outlined" class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar>
-              <mat-icon color="primary">collections_bookmark</mat-icon>
-            </div>
-            <mat-card-title>Total Productos</mat-card-title>
-            <mat-card-subtitle>{{totalProductos}}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
-      </mat-grid-tile>
-
-
-    </mat-grid-list>
-
-    <mat-tab-group animationDuration="2000ms">
+  <section class="surface-card charts-card">
+    <mat-tab-group animationDuration="250ms">
       <mat-tab label="Ventas Diarias">
-        <mat-card appearance="outlined" style="margin-top:15px">
-          <mat-card-content>
-            <div style="width: 100%;height:500px">
-              <canvas #myChart id="myChart"></canvas>
-            </div>
-          </mat-card-content>
-        </mat-card>
+        <div class="chart-box">
+          <canvas #myChart id="myChart"></canvas>
+        </div>
       </mat-tab>
-      <mat-tab label="Ventas por Producto ">
-        <mat-card appearance="outlined" style="margin-top:15px">
-          <mat-card-content>
-            <div style="width: 100%;height:500px">
-              <canvas #myChart2 id="myChart2"></canvas>
-            </div>
-          </mat-card-content>
-        </mat-card>
+      <mat-tab label="Ventas por Producto">
+        <div class="chart-box">
+          <canvas #myChart2 id="myChart2"></canvas>
+        </div>
       </mat-tab>
       <mat-tab label="Ventas por Cantidad de Producto">
-        <mat-card appearance="outlined" style="margin-top:15px">
-          <mat-card-content>
-            <div style="width: 100%;height:500px">
-              <canvas #myChart3 id="myChart3"></canvas>
-            </div>
-          </mat-card-content>
-        </mat-card>
+        <div class="chart-box">
+          <canvas #myChart3 id="myChart3"></canvas>
+        </div>
       </mat-tab>
     </mat-tab-group>
+  </section>
 
-    
-
-    
-
-    
-
-    
-
-  </mat-card-content>
-
-</mat-card>
+</div>

@@ -1,8 +1,7 @@
-mat-form-field {
-    width: 100%;
-    margin: 10px 0px;
-  }
-  
-  table {
-    width: 100%;
-  }
+.dialog-table {
+  min-width: min(460px, 74vw);
+}
+
+table {
+  width: 100%;
+}

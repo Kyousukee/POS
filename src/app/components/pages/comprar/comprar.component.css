@@ -1,13 +1,50 @@
-.example-form {
-    /*  min-width: 150px;
-      max-width: 500px;*/
-      width: 100%;
-    }
-    
-    .example-full-width {
-      width: 100%;
-    }
-    
-    table {
-      width: 100%;
-    }
+.pos-form { width: 100%; }
+
+.checkout-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+}
+
+.pago-field { width: min(220px, 100%); }
+
+.total-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 8px;
+  margin-left: auto;
+}
+
+.total-label {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-muted);
+}
+
+.total-value {
+  font-size: clamp(1.25rem, 1rem + 1.4vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--brand-strong);
+}
+
+.registrar-btn {
+  height: 46px;
+  padding: 0 24px !important;
+}
+
+@media (max-width: 599px) {
+  .checkout-bar { flex-direction: column; align-items: stretch; }
+  .total-box { align-items: center; margin-left: 0; }
+  .pago-field { width: 100%; }
+  .registrar-btn { width: 100%; }
+}

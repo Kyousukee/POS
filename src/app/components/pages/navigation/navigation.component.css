@@ -1,193 +1,203 @@
-.sidenav-container {
-    height: 100%;
-  }
-  
-  /* .sidenav {
-    width: 20%;
-  } */
-  
-  .sidenav .mat-toolbar {
-    background: inherit;
-  }
-  
-  .mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  .with-icon {
-    display: flex;
-    align-items: center;
+:host {
+  display: block;
+  height: 100%;
 }
 
-.example-container {
+.shell {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.example-container::-webkit-scrollbar {
-  -webkit-appearance: none;
-}
-
-.example-container::-webkit-scrollbar:vertical {
-  width:10px;
-}
-
-.example-container::-webkit-scrollbar-button:increment,.example-container::-webkit-scrollbar-button {
-  display: none;
-} 
-
-.example-container::-webkit-scrollbar:horizontal {
-  height: 10px;
-}
-
-.example-container::-webkit-scrollbar-thumb {
-  background-color: #797979;
-  border-radius: 20px;
-  border: 2px solid #f1f2f3;
-}
-
-.example-container::-webkit-scrollbar-track {
-  border-radius: 10px;  
-}
-
-.example-is-mobile .example-toolbar {
   position: fixed;
-  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-  z-index: 2;
+  inset: 0;
 }
 
-h1.example-app-name {
-  margin-left: 8px;
-}
-
-.example-sidenav-container {
-  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-  flex: 1;
-}
-
-.example-is-mobile .example-sidenav-container {
-  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-     `<body>` to be our scrolling element for mobile layouts. */
-  flex: 1 0 auto;
-}
-
-.labelsidenav{
-  height: 56px!important;
-}
-  
-
-
-
-
-section {
-  width: 100%;
-  display: inline-block;
-  background: #ccc;
-  height: 40vh;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.footer-distributed {
-  background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-  font: normal 16px sans-serif;
-  padding: 45px 50px;
-}
-
-.footer-distributed .footer-left p {
-  color: #8f9296;
-  font-size: 14px;
-  margin: 0;
-}
-/* Footer links */
-
-.footer-distributed p.footer-links {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffffff;
-  margin: 0 0 10px;
-  padding: 0;
-  transition: ease .25s;
-}
-
-.footer-distributed p.footer-links a {
-  display: inline-block;
-  line-height: 1.8;
-  text-decoration: none;
-  color: inherit;
-  transition: ease .25s;
-}
-
-.footer-distributed .footer-links a:before {
-  content: "·";
-  font-size: 20px;
-  left: 0;
+/* ---------------- Barra superior ---------------- */
+.topbar {
+  position: relative;
+  z-index: 10;
+  height: var(--header-h);
+  min-height: var(--header-h);
+  padding: 0 clamp(8px, 2vw, 20px);
+  gap: 8px;
+  background: linear-gradient(90deg, var(--brand-strong), var(--brand));
   color: #fff;
-  display: inline-block;
-  padding-right: 5px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .06), 0 6px 18px rgba(41, 24, 105, .18);
 }
 
-.footer-distributed .footer-links .link-1:before {
-  content: none;
+.topbar .menu-btn { color: #fff; }
+
+.brand-logo {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+  margin-left: 4px;
 }
 
-.footer-distributed .footer-right {
-  float: right;
-  margin-top: 6px;
-  max-width: 180px;
+.spacer { flex: 1 1 auto; }
+
+.user-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.25;
+  margin-right: 10px;
+  min-width: 0;
 }
 
-.footer-distributed .footer-right a {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  background-color: #33383b;
-  border-radius: 2px;
-  font-size: 20px;
-  color: #ffffff;
+.user-name {
+  font-size: .9rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40vw;
+}
+
+.user-meta {
+  font-size: .75rem;
+  opacity: .8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40vw;
+}
+
+.avatar-btn { flex: none; }
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .18);
+  border: 1px solid rgba(255, 255, 255, .3);
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+.user-menu-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px;
+  min-width: 220px;
+  font-size: .82rem;
+  color: var(--text-muted);
+}
+
+.user-menu-head strong {
+  color: var(--text);
+  font-size: .92rem;
+}
+
+.user-menu-head span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-menu-head .mat-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+/* ---------------- Cuerpo ---------------- */
+.shell-body {
+  flex: 1;
+  min-height: 0;
+  background: var(--bg);
+}
+
+.sidebar {
+  width: 248px;
+  border: none;
+  background: #ffffff;
+  border-right: 1px solid var(--border);
+  padding: 12px 10px;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: .92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav-item .mat-icon {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  font-size: 22px;
+}
+
+.nav-item:hover {
+  background: var(--surface-muted);
+  color: var(--text);
+}
+
+.nav-item.active {
+  background: var(--brand-soft);
+  color: var(--brand-strong);
+  font-weight: 600;
+}
+
+/* Barra compacta (sólo iconos) en pantallas medianas */
+@media (min-width: 960px) and (max-width: 1279.98px) {
+  .sidebar { width: 76px; padding: 12px 8px; }
+  .nav-item { justify-content: center; padding: 0; gap: 0; }
+  .nav-label { display: none; }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content-inner { flex: 1; }
+
+.app-footer {
+  padding: 18px 16px;
   text-align: center;
-  line-height: 35px;
-  margin-left: 3px;
-  transition:all .25s;
+  font-size: .8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
 }
 
-.footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
-
-.footer-distributed p.footer-links a:hover{text-decoration:underline;}
-
-/* Media Queries */
-
-@media (max-width: 600px) {
-  .footer-distributed .footer-left, .footer-distributed .footer-right {
-    text-align: center;
-  }
-  .footer-distributed .footer-right {
-    float: none;
-    margin: 0 auto 20px;
-  }
-  .footer-distributed .footer-left p.footer-links {
-    line-height: 1.8;
-  }
+.app-footer a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
 }
 
-@media only screen and (max-width: 768px) {
-  .mobile {display: none;}
-} 
+.app-footer a:hover { text-decoration: underline; }
 
+/* ---------------- Responsivo ---------------- */
+@media (min-width: 960px) {
+  .menu-btn { display: none; }
+}
+
+@media (max-width: 599px) {
+  .user-box { display: none; }
+  .brand-logo { height: 28px; }
+}
