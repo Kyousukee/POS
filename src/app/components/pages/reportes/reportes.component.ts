@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { ReporteVenta } from '../../../interfaces/reporte-venta';
 import * as XLSX from 'xlsx';
 import * as moment from 'moment';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ReportesServiciosService } from '../../../servicios/reportes-servicios.service';
 import { Reporte } from '../../../interfaces/reporte';
 

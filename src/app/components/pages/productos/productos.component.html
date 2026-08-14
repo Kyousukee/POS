@@ -1,6 +1,6 @@
 
 <h1 style="margin:20px 0px 0px 40px"><mat-icon mat-list-icon style="color: dark;">collections_bookmark</mat-icon> Productos</h1>
-<mat-card style="margin: 20px 40px 40px 40px">
+<mat-card appearance="outlined" style="margin: 20px 40px 40px 40px">
 
   <mat-card-title>
     <button mat-raised-button color="primary" (click)="agregarProducto()"><mat-icon mat-list-icon>add</mat-icon> Nuevo Producto</button>
@@ -9,7 +9,7 @@
 
   <mat-card-content class="dashboard-card-content">
 
-    <mat-form-field appearance="standard">
+    <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)"  #input>
     </mat-form-field>

@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ResponseDialogHistorial } from 'src/app/interfaces/responseDialogHistorial';
 import { responseHistorial } from 'src/app/interfaces/responseHistorial';
 import { responseHistorialDetalle } from 'src/app/interfaces/responseHistorialDetalle';

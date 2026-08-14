@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { UsuarioServicioService } from '../../services/usuario-servicio.service';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UsuarioServicioService } from '../../servicios/usuario-servicio.service';
 import { Usuario } from '../../interfaces/usuario';
 

@@ -1,12 +1,12 @@
 import { Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogUsuarioComponent } from '../modals/dialog-usuario/dialog-usuario.component';
 import { DialogDeleteUsuarioComponent } from '../modals/dialog-delete-usuario/dialog-delete-usuario.component';
 import { Usuario } from '../../../interfaces/usuario';
-import {MatLegacySnackBar as MatSnackBar} from '@angular/material/legacy-snack-bar';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { UsuarioServicioService } from '../../../servicios/usuario-servicio.service';
 
 const ELEMENT_DATA: Usuario[] = [
