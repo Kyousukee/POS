@@ -14,9 +14,10 @@ const ELEMENT_DATA: PrecioHistorial[] = [
 ];
 
 @Component({
-  selector: 'app-dialog-precios-historial',
-  templateUrl: './dialog-precios-historial.component.html',
-  styleUrls: ['./dialog-precios-historial.component.css']
+    selector: 'app-dialog-precios-historial',
+    templateUrl: './dialog-precios-historial.component.html',
+    styleUrls: ['./dialog-precios-historial.component.css'],
+    standalone: false
 })
 export class DialogPreciosHistorialComponent implements OnInit {
 

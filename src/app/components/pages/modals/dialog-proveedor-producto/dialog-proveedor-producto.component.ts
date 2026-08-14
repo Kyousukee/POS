@@ -22,9 +22,10 @@ const ELEMENT_DATA: Proveedorproducto[] = [
 ];
 
 @Component({
-  selector: 'app-dialog-proveedor-producto',
-  templateUrl: './dialog-proveedor-producto.component.html',
-  styleUrls: ['./dialog-proveedor-producto.component.css']
+    selector: 'app-dialog-proveedor-producto',
+    templateUrl: './dialog-proveedor-producto.component.html',
+    styleUrls: ['./dialog-proveedor-producto.component.css'],
+    standalone: false
 })
 export class DialogProveedorProductoComponent implements OnInit {
 

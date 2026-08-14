@@ -25,12 +25,13 @@ export const MY_DATE_FORMATS = {
 
 
 @Component({
-  selector: 'app-reportes',
-  templateUrl: './reportes.component.html',
-  styleUrls: ['./reportes.component.css'],
-  providers: [
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
-  ]
+    selector: 'app-reportes',
+    templateUrl: './reportes.component.html',
+    styleUrls: ['./reportes.component.css'],
+    providers: [
+        { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+    ],
+    standalone: false
 })
 export class ReportesComponent implements OnInit {
   formGroup: FormGroup;

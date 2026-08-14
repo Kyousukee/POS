@@ -22,12 +22,13 @@ export const MY_DATE_FORMATS = {
 };
 
 @Component({
-  selector: 'app-reportes-compra',
-  templateUrl: './reportes-compra.component.html',
-  styleUrls: ['./reportes-compra.component.css'],
-  providers: [
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
-  ]
+    selector: 'app-reportes-compra',
+    templateUrl: './reportes-compra.component.html',
+    styleUrls: ['./reportes-compra.component.css'],
+    providers: [
+        { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+    ],
+    standalone: false
 })
 export class ReportesCompraComponent implements OnInit {
 

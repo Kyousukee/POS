@@ -4,9 +4,10 @@ import { DetalleCompra } from '../../../../interfaces/detalle-compra';
 import { Compra } from '../../../../interfaces/compra';
 
 @Component({
-  selector: 'app-dialog-detalle-compra',
-  templateUrl: './dialog-detalle-compra.component.html',
-  styleUrls: ['./dialog-detalle-compra.component.css']
+    selector: 'app-dialog-detalle-compra',
+    templateUrl: './dialog-detalle-compra.component.html',
+    styleUrls: ['./dialog-detalle-compra.component.css'],
+    standalone: false
 })
 export class DialogDetalleCompraComponent implements OnInit {
 

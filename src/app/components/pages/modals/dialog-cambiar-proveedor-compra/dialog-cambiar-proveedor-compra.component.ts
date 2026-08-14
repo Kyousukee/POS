@@ -4,9 +4,10 @@ import { Proveedor } from 'src/app/interfaces/proveedor';
 import { DialogDeleteProveedorComponent } from '../dialog-delete-proveedor/dialog-delete-proveedor.component';
 
 @Component({
-  selector: 'app-dialog-cambiar-proveedor-compra',
-  templateUrl: './dialog-cambiar-proveedor-compra.component.html',
-  styleUrls: ['./dialog-cambiar-proveedor-compra.component.css']
+    selector: 'app-dialog-cambiar-proveedor-compra',
+    templateUrl: './dialog-cambiar-proveedor-compra.component.html',
+    styleUrls: ['./dialog-cambiar-proveedor-compra.component.css'],
+    standalone: false
 })
 export class DialogCambiarProveedorCompraComponent implements OnInit {
 

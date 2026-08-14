@@ -17,9 +17,10 @@ const ELEMENT_DATA: Proveedor[] = [
 ];
 
 @Component({
-  selector: 'app-proveedor',
-  templateUrl: './proveedor.component.html',
-  styleUrls: ['./proveedor.component.css']
+    selector: 'app-proveedor',
+    templateUrl: './proveedor.component.html',
+    styleUrls: ['./proveedor.component.css'],
+    standalone: false
 })
 export class ProveedorComponent implements OnInit {
 

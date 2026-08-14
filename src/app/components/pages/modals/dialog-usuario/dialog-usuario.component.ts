@@ -9,9 +9,10 @@ import { Usuario } from '../../../../interfaces/usuario';
 import { RolServicioService } from '../../../../servicios/rol-servicio.service';
 import { UsuarioServicioService } from '../../../../servicios/usuario-servicio.service';
 @Component({
-  selector: 'app-dialog-usuario',
-  templateUrl: './dialog-usuario.component.html',
-  styleUrls: ['./dialog-usuario.component.css']
+    selector: 'app-dialog-usuario',
+    templateUrl: './dialog-usuario.component.html',
+    styleUrls: ['./dialog-usuario.component.css'],
+    standalone: false
 })
 export class DialogUsuarioComponent implements OnInit, AfterViewInit {
   formUsuario: FormGroup;

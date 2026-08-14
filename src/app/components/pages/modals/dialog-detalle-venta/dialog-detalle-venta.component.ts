@@ -6,9 +6,10 @@ import { responseHistorialDetalle } from 'src/app/interfaces/responseHistorialDe
 import { DetalleVenta } from '../../../../interfaces/detalle-venta';
 import { Venta } from '../../../../interfaces/venta';
 @Component({
-  selector: 'app-dialog-detalle-venta',
-  templateUrl: './dialog-detalle-venta.component.html',
-  styleUrls: ['./dialog-detalle-venta.component.css']
+    selector: 'app-dialog-detalle-venta',
+    templateUrl: './dialog-detalle-venta.component.html',
+    styleUrls: ['./dialog-detalle-venta.component.css'],
+    standalone: false
 })
 export class DialogDetalleVentaComponent implements OnInit {
 

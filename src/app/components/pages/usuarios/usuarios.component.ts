@@ -17,9 +17,10 @@ const ELEMENT_DATA: Usuario[] = [
 ];
 
 @Component({
-  selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+    selector: 'app-usuarios',
+    templateUrl: './usuarios.component.html',
+    styleUrls: ['./usuarios.component.css'],
+    standalone: false
 })
 export class UsuariosComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['nombreApellidos', 'correo','usuario', 'rolDescripcion','acciones'];

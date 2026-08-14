@@ -3,9 +3,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Proveedor } from '../../../../interfaces/proveedor';
 
 @Component({
-  selector: 'app-dialog-delete-proveedor',
-  templateUrl: './dialog-delete-proveedor.component.html',
-  styleUrls: ['./dialog-delete-proveedor.component.css']
+    selector: 'app-dialog-delete-proveedor',
+    templateUrl: './dialog-delete-proveedor.component.html',
+    styleUrls: ['./dialog-delete-proveedor.component.css'],
+    standalone: false
 })
 export class DialogDeleteProveedorComponent implements OnInit {
 

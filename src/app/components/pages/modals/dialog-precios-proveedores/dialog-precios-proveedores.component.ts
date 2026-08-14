@@ -13,9 +13,10 @@ const ELEMENT_DATA: PrecioProveedor[] = [
 ];
 
 @Component({
-  selector: 'app-dialog-precios-proveedores',
-  templateUrl: './dialog-precios-proveedores.component.html',
-  styleUrls: ['./dialog-precios-proveedores.component.css']
+    selector: 'app-dialog-precios-proveedores',
+    templateUrl: './dialog-precios-proveedores.component.html',
+    styleUrls: ['./dialog-precios-proveedores.component.css'],
+    standalone: false
 })
 export class DialogPreciosProveedoresComponent implements OnInit {
 

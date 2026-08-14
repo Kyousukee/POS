@@ -7,9 +7,10 @@ import { UsuarioServicioService } from '../../servicios/usuario-servicio.service
 import { Usuario } from '../../interfaces/usuario';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    standalone: false
 })
 export class LoginComponent implements OnInit {
 

@@ -18,9 +18,10 @@ const ELEMENT_DATA: Producto[] = [
 ];
 
 @Component({
-  selector: 'app-productos',
-  templateUrl: './productos.component.html',
-  styleUrls: ['./productos.component.css']
+    selector: 'app-productos',
+    templateUrl: './productos.component.html',
+    styleUrls: ['./productos.component.css'],
+    standalone: false
 })
 export class ProductosComponent implements OnInit {
 

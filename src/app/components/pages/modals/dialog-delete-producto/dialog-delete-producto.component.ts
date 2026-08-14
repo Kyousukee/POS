@@ -3,9 +3,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Producto } from '../../../../interfaces/producto';
 
 @Component({
-  selector: 'app-dialog-delete-producto',
-  templateUrl: './dialog-delete-producto.component.html',
-  styleUrls: ['./dialog-delete-producto.component.css']
+    selector: 'app-dialog-delete-producto',
+    templateUrl: './dialog-delete-producto.component.html',
+    styleUrls: ['./dialog-delete-producto.component.css'],
+    standalone: false
 })
 export class DialogDeleteProductoComponent implements OnInit {
 

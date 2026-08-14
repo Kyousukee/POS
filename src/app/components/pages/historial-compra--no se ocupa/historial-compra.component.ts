@@ -24,12 +24,13 @@ export const MY_DATE_FORMATS = {
 
 
 @Component({
-  selector: 'app-historial-compra',
-  templateUrl: './historial-compra.component.html',
-  styleUrls: ['./historial-compra.component.css'],
-  providers: [
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
-  ]
+    selector: 'app-historial-compra',
+    templateUrl: './historial-compra.component.html',
+    styleUrls: ['./historial-compra.component.css'],
+    providers: [
+        { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+    ],
+    standalone: false
 })
 export class HistorialCompraComponent implements OnInit {
 

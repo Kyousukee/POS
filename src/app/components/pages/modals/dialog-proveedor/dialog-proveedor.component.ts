@@ -7,9 +7,10 @@ import { ProveedorServiciosService } from 'src/app/servicios/proveedor-servicios
 import { Proveedor } from '../../../../interfaces/proveedor';
 
 @Component({
-  selector: 'app-dialog-proveedor',
-  templateUrl: './dialog-proveedor.component.html',
-  styleUrls: ['./dialog-proveedor.component.css']
+    selector: 'app-dialog-proveedor',
+    templateUrl: './dialog-proveedor.component.html',
+    styleUrls: ['./dialog-proveedor.component.css'],
+    standalone: false
 })
 export class DialogProveedorComponent implements OnInit {
 

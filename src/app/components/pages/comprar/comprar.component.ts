@@ -17,10 +17,10 @@ import { DialogCambiarProveedorCompraComponent } from '../modals/dialog-cambiar-
 
 
 @Component({
-  selector: 'app-comprar',
-  templateUrl: './comprar.component.html',
-  styleUrls: ['./comprar.component.css'],
-  
+    selector: 'app-comprar',
+    templateUrl: './comprar.component.html',
+    styleUrls: ['./comprar.component.css'],
+    standalone: false
 })
 export class ComprarComponent implements OnInit {
   options: Producto[] = [];

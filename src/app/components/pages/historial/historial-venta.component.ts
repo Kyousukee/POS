@@ -26,12 +26,13 @@ export const MY_DATE_FORMATS = {
 };
 
 @Component({
-  selector: 'app-historial-venta',
-  templateUrl: './historial-venta.component.html',
-  styleUrls: ['./historial-venta.component.css'],
-  providers: [
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
-  ]
+    selector: 'app-historial-venta',
+    templateUrl: './historial-venta.component.html',
+    styleUrls: ['./historial-venta.component.css'],
+    providers: [
+        { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+    ],
+    standalone: false
 })
 export class HistorialVentaComponent implements OnInit {
   formGroup: FormGroup;

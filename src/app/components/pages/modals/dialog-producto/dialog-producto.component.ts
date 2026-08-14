@@ -11,9 +11,10 @@ import { CobrarPor } from '../../../../interfaces/CobrarPor';
 import { Usuario } from 'src/app/interfaces/usuario';
 
 @Component({
-  selector: 'app-dialog-producto',
-  templateUrl: './dialog-producto.component.html',
-  styleUrls: ['./dialog-producto.component.css']
+    selector: 'app-dialog-producto',
+    templateUrl: './dialog-producto.component.html',
+    styleUrls: ['./dialog-producto.component.css'],
+    standalone: false
 })
 export class DialogProductoComponent implements OnInit {
   formProducto: FormGroup;

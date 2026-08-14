@@ -15,9 +15,10 @@ import { Usuario } from 'src/app/interfaces/usuario';
 
 
 @Component({
-  selector: 'app-vender',
-  templateUrl: './vender.component.html',
-  styleUrls: ['./vender.component.css']
+    selector: 'app-vender',
+    templateUrl: './vender.component.html',
+    styleUrls: ['./vender.component.css'],
+    standalone: false
 })
 
 

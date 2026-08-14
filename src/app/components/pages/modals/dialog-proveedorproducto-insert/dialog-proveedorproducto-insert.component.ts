@@ -10,9 +10,10 @@ import { ProveedorServiciosService } from 'src/app/servicios/proveedor-servicios
 import { Proveedorproducto } from '../../../../interfaces/proveedorproducto';
 
 @Component({
-  selector: 'app-dialog-proveedorproducto-insert',
-  templateUrl: './dialog-proveedorproducto-insert.component.html',
-  styleUrls: ['./dialog-proveedorproducto-insert.component.css']
+    selector: 'app-dialog-proveedorproducto-insert',
+    templateUrl: './dialog-proveedorproducto-insert.component.html',
+    styleUrls: ['./dialog-proveedorproducto-insert.component.css'],
+    standalone: false
 })
 export class DialogProveedorproductoInsertComponent implements OnInit {
 
