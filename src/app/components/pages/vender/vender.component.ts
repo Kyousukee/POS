@@ -1,15 +1,15 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { DetalleVenta } from '../../../interfaces/detalle-venta';
 import { Producto } from '../../../interfaces/producto';
 import { Venta } from '../../../interfaces/venta';
 import { ProductosServiciosService } from '../../../servicios/productos-servicios.service';
 import { VentasServiciosService } from '../../../servicios/ventas-servicios.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { DialogResultadoVentaComponent } from '../modals/dialog-resultado-venta/dialog-resultado-venta.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatInput } from '@angular/material/input';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatLegacyInput as MatInput } from '@angular/material/legacy-input';
 import { Usuario } from 'src/app/interfaces/usuario';
 
 

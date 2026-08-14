@@ -1,15 +1,15 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators  } from '@angular/forms';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { DetalleCompra } from '../../../interfaces/detalle-compra';
 import { Producto } from '../../../interfaces/producto';
 import { Compra } from '../../../interfaces/compra';
 import { ProductosServiciosService } from '../../../servicios/productos-servicios.service';
 import { ProveedorServiciosService } from '../../../servicios/proveedor-servicios.service';
 import { ComprasServiciosService } from '../../../servicios/compras-servicios.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { DialogResultadoCompraComponent } from '../modals/dialog-resultado-compra/dialog-resultado-compra.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { Proveedor } from '../../../interfaces/proveedor';
 import { DialogCambiarProveedorCompraComponent } from '../modals/dialog-cambiar-proveedor-compra/dialog-cambiar-proveedor-compra.component';

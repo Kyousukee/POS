@@ -1,9 +1,9 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { DialogProductoComponent } from '../modals/dialog-producto/dialog-producto.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { Producto } from '../../../interfaces/producto';
 import { DialogDeleteProductoComponent } from '../modals/dialog-delete-producto/dialog-delete-producto.component';
 import { ProductosServiciosService } from '../../../servicios/productos-servicios.service';

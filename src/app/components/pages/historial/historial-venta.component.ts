@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { Venta } from '../../../interfaces/venta';
 import { DialogDetalleVentaComponent } from '../modals/dialog-detalle-venta/dialog-detalle-venta.component';
 import { VentasServiciosService } from '../../../servicios/ventas-servicios.service';
 import { ComprasServiciosService } from '../../../servicios/compras-servicios.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import * as moment from 'moment';
 import { responseHistorial } from 'src/app/interfaces/responseHistorial';
 import { Usuario } from 'src/app/interfaces/usuario';
